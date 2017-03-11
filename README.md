@@ -34,6 +34,11 @@ $ mysql -p < "GRANT ALL ON *.* TO 'paylogic2'@'localhost' IDENTIFIED BY PASSWORD
 web/view/theme/spg/assets/spg-theme.css
 web/view/theme/spg/assets/spg-theme.js
 ```
+Note: Mobile Template is activated by replacing 
+```layout-horizontal```
+with 
+```layout-vertical```
+and happens automatically when the page is loaded based on client information
 
 3. Commit & Push
 ```
@@ -41,3 +46,5 @@ $ git add .;
 $ git commit -m "Site Theme Changes";
 $ git push;
 ```
+
+

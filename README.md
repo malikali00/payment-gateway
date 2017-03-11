@@ -1,4 +1,4 @@
-# Simon Payments Gateway
+# Payment Gateway
 
 PHP/MySQL Integrated Payment Processor written by Ari Asulin
 

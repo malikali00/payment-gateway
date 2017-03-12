@@ -593,7 +593,7 @@ LEFT JOIN state st on st.short_code = oi.payee_state
         $cardNumber = preg_replace('/\D/', '', $cardNumber);
 
         $len = strlen($cardNumber);
-        if ($len < 15 || $len > 16) {
+        if ($len < 5 || $len > 16) {
             if($throwException)
                 throw new \InvalidArgumentException("Invalid credit card number. Length does not match");
             return null;

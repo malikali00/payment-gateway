@@ -195,7 +195,7 @@ HEAD;
                             <div style="display: inline-block">
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Card Number</span>
-                                    <input type="text" name="card_number" placeholder="xxxxxxxxxxxxxxxx" required />
+                                    <input type="text" name="card_number" placeholder="xxxxxxxxxxxxxxxx" required pattern=".{5,16}" />
                                 </label>
 
 

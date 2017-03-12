@@ -22,7 +22,7 @@ Pass    eVw{P7mphBn
 ```
 $ git checkout dev;
 $ mysql -p < site/spg/spg.sql; 
-$ mysql -p < "GRANT ALL ON *.* TO 'paylogic2'@'localhost' IDENTIFIED BY PASSWORD '*1D6352F7787D249137604DCE6CFC43B1D82B8715' WITH GRANT OPTION;"
+$ mysql -p -e "GRANT SELECT, INSERT, UPDATE, DELETE ON spg.* TO 'spg'@'%';"
 ```
 
 ## Editing the Site Template without deployment

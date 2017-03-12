@@ -147,7 +147,7 @@ HEAD;
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Card Number</td>
-                                <td><input type="text" name="card_number" placeholder="xxxxxxxxxxxxxxxx" required /></td>
+                                <td><input type="text" name="card_number" placeholder="xxxxxxxxxxxxxxxx" required pattern=".{5,16}" title=""/></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Card Type</td>

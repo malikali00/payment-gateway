@@ -11,9 +11,9 @@ use System\Config\SiteConfig;
 
 // Database Config
 //DBConfig::$DB_HOST = 'localhost';
-DBConfig::$DB_NAME = 'paylogic';
-DBConfig::$DB_USERNAME = 'paylogic2';
-DBConfig::$DB_PASSWORD = 'eVw{P7mphBn';
+DBConfig::$DB_NAME = 'spg';
+DBConfig::$DB_USERNAME = 'spg';
+DBConfig::$DB_PASSWORD = '';
 
 // Site Config
 SiteConfig::$SITE_NAME = "Simon Payments Gateway";
@@ -29,3 +29,8 @@ SiteConfig::$EMAIL_SMTP_AUTH = false; // true;
 SiteConfig::$EMAIL_SMTP_SECURE = 'ssl'; // 'tls';
 SiteConfig::$EMAIL_USERNAME = 'support@simonpayments.com';
 SiteConfig::$EMAIL_PASSWORD = 'LxcaHGCA9$ad';
+
+if(SiteConfig::$DEBUG_MODE) {
+    SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
+    SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
+}

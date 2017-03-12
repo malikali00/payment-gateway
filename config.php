@@ -44,6 +44,7 @@ switch($host) {
         SiteConfig::$SITE_AUTO_LOGIN_ACCOUNT = 'demo';
         break;
 
+    case 'localhost':
     case 'dev.simonpayments.com':
         SiteConfig::$DEBUG_MODE = true;
         include __DIR__ . '/site/spg/config.php';
@@ -51,7 +52,6 @@ switch($host) {
 
 
     // Court Pay
-    case 'localhost':
     case 'dev.courtpay.org':
         include __DIR__ . '/site/courtpay/config.php';
         SiteConfig::$DEBUG_MODE = true;

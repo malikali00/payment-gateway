@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     e.preventDefault();
                     form.amount.focus();
                 }
+
                 // else if(form.fraud_high_limit && form.fraud_high_limit.value > 0.1 && form.fraud_high_limit.value < form.amount.value) {
                 //     e.preventDefault();
                 //     form.amount.focus();

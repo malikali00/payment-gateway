@@ -1,5 +1,6 @@
 <?php /** @var \User\View\LoginView $this  **/
 use User\Session\SessionManager;
+use System\Config\SiteConfig;
 
 $odd = true;
 // Render Header
@@ -31,12 +32,12 @@ $SessionManager = new SessionManager();
                     </tr>
                     <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                         <td>
-                            <input type="text" name="username" id="username"  placeholder="Username"  value="" autofocus required class="themed"/>
+                            <input type="text" name="username" id="username" placeholder="Username" value="<?php echo SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME; ?>" autofocus required class="themed"/>
                         </td>
                     </tr>
                     <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                         <td>
-                            <input type="password" name="password" id="password"  placeholder="Password" autocomplete="off" required class="themed" />
+                            <input type="password" name="password" id="password" value="<?php echo SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD; ?>" placeholder="Password" autocomplete="off" required class="themed" />
                         </td>
                     </tr>
                     <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">

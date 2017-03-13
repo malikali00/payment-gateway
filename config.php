@@ -40,8 +40,8 @@ switch($host) {
     case 'demo.simonpayments.com':
         include __DIR__ . '/site/spg/config.php';
         DBConfig::$DB_NAME = 'spgdemo';
-        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
-        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestMerchant';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestMerchant';
         break;
 
     case 'localhost':
@@ -69,8 +69,8 @@ switch($host) {
 
     case 'demo.courtpay.org':
         include __DIR__ . '/site/courtpay/config.php';
-        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
-        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestMerchant';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestMerchant';
         break;
 
 
@@ -89,7 +89,7 @@ switch($host) {
 
     case 'demo.utilitypay.org':
         include __DIR__ . '/site/utilitypay/config.php';
-        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
-        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestMerchant';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestMerchant';
         break;
 }

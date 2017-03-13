@@ -21,7 +21,8 @@ Pass    eVw{P7mphBn
 
 ```
 $ git checkout dev;
-$ mysql -p < site/spg/spg.sql; 
+$ mysql -p -e "CREATE SCHEMA spg";
+$ mysql -p spg < site/spg/spg.sql; 
 $ mysql -p -e "GRANT SELECT, INSERT, UPDATE, DELETE ON spg.* TO 'spg'@'%';"
 ```
 

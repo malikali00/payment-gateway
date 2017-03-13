@@ -40,12 +40,14 @@ switch($host) {
     case 'demo.simonpayments.com':
         include __DIR__ . '/site/spg/config.php';
         DBConfig::$DB_NAME = 'spgdemo';
-        SiteConfig::$SITE_AUTO_LOGIN_ENABLED = true;
-        SiteConfig::$SITE_AUTO_LOGIN_ACCOUNT = 'demo';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
         break;
 
     case 'localhost':
     case 'dev.simonpayments.com':
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
         SiteConfig::$DEBUG_MODE = true;
         include __DIR__ . '/site/spg/config.php';
         break;
@@ -54,24 +56,29 @@ switch($host) {
     // Court Pay
     case 'dev.courtpay.org':
         include __DIR__ . '/site/courtpay/config.php';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
         SiteConfig::$DEBUG_MODE = true;
         break;
 
     case 'courtpay.org':
+    case 'courtpay.localhost':
     case 'access.courtpay.org':
         include __DIR__ . '/site/courtpay/config.php';
         break;
 
     case 'demo.courtpay.org':
         include __DIR__ . '/site/courtpay/config.php';
-        SiteConfig::$SITE_AUTO_LOGIN_ENABLED = true;
-        SiteConfig::$SITE_AUTO_LOGIN_ACCOUNT = 'demo';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
         break;
 
 
     // Utility Pay
     case 'dev.utilitypay.org':
         include __DIR__ . '/site/utilitypay/config.php';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
         SiteConfig::$DEBUG_MODE = true;
         break;
 
@@ -82,7 +89,7 @@ switch($host) {
 
     case 'demo.utilitypay.org':
         include __DIR__ . '/site/utilitypay/config.php';
-        SiteConfig::$SITE_AUTO_LOGIN_ENABLED = true;
-        SiteConfig::$SITE_AUTO_LOGIN_ACCOUNT = 'demo';
+        SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
+        SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
         break;
 }

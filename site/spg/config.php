@@ -29,8 +29,3 @@ SiteConfig::$EMAIL_SMTP_AUTH = false; // true;
 SiteConfig::$EMAIL_SMTP_SECURE = 'ssl'; // 'tls';
 SiteConfig::$EMAIL_USERNAME = 'support@simonpayments.com';
 SiteConfig::$EMAIL_PASSWORD = 'LxcaHGCA9$ad';
-
-if(SiteConfig::$DEBUG_MODE) {
-    SiteConfig::$SITE_DEFAULT_LOGIN_USERNAME = 'TestAdmin';
-    SiteConfig::$SITE_DEFAULT_LOGIN_PASSWORD = 'TestAdmin';
-}

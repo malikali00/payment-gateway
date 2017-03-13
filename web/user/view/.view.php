@@ -144,13 +144,13 @@ $Theme->printHTMLMenu($category,    $action_url);
 
                             <?php if($SessionUser->getID() !== $User->getID()) { ?>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td class="name">Admin Access</td>
+                                <td class="name">Access</td>
                                 <td class="value"><input type="submit" class="themed" value="Login" name="action" /></td>
                             </tr>
                             <?php } ?>
 
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td class="name">Resend Welcome Email</td>
+                                <td class="name">Email</td>
                                 <td class="value">
                                     <button type="submit" class="themed" value="resend-welcome-email" name="action" onclick="if(!confirm('Are you sure you want to resend the welcome email to <?php echo $User->getEmail(); ?>?')) return false;">Resend Email</button>
                                 </td>

@@ -89,7 +89,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             + '&Country=' + (form.payee_country ? form.payee_country.value : 'USA');
 
 
-        var entry_mode = form.entry_mode.value.toLowerCase() || 'keyed';
+        var entry_mode = 'keyed';
+        if(form.check_account_number && form.check_account_number.value)
+            entry_mode = 'check';
 
         var payee_name_full = 
             form.payee_full_name

@@ -5,24 +5,17 @@
 function toggleNavMenu(e) {
     if(e) e.preventDefault();
     var body = document.body;
-    if(body.classList.contains('layout-full')) {
-        body.classList.remove('layout-full');
-        body.classList.add('layout-narrow');
-    } else {
-        body.classList.add('layout-full');
-        body.classList.remove('layout-narrow');
-    }
-
-    localStorage.setItem('layout-narrow', body.classList.contains('layout-narrow') ? '1' : '0');
+    document.body.classList.toggle('layout-menu');
+    // localStorage.setItem('layout-narrow', body.classList.contains('layout-narrow') ? '1' : '0');
 }
 
 // Initialize
 document.addEventListener("DOMContentLoaded", function(e) {
 
-    if(localStorage.getItem('layout-narrow') === '1') {
-        document.body.classList.remove('layout-full');
-        document.body.classList.add('layout-narrow');
-    }
+    // if(localStorage.getItem('layout-narrow') === '1') {
+    //     document.body.classList.remove('layout-full');
+    //     document.body.classList.add('layout-narrow');
+    // }
     function onResize(e) {
         if(document.body.classList.contains('layout-vertical'))
             return;

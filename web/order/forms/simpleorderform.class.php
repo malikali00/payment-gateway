@@ -165,28 +165,14 @@ HEAD;
                     <fieldset class="" style="max-width: 45em;">
                         <div class="legend">Choose a Payment Method</div>
 
-                        <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
-                            <span>Payment Method</span>
-
-                            <select name="entry_mode2" class="" required autofocus title="Choose an entry method">
-                                <option value="Keyed">Keyed Card</option>
-                                <option value="Swipe">Swipe Card</option>
-                                <option value="Check">e-Check</option>
-                            </select>
-                        </label>
-
                         <div class="entry-options">
                             <label class="entry-option entry-option-keyed">
                                 <input type="radio" name="entry_mode" value="Keyed" checked>
-                                Credit Card (Keyed)
-                            </label>
-                            <label class="entry-option entry-option-swipe">
-                                <input type="radio" name="entry_mode" value="Swipe">
-                                Credit Card (Swipe)
+                                Credit Card
                             </label>
                             <label class="entry-option entry-option-check">
                                 <input type="radio" name="entry_mode" value="Check">
-                                e-Check (ACH)
+                                e-Check
                             </label>
                         </div>
 

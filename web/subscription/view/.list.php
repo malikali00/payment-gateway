@@ -95,7 +95,7 @@ $Theme->printHTMLMenu('order-subscription-list');
                             <th>Amount</th>
                             <th>Count</th>
                             <th>Frequency</th>
-                            <th>Customer/ID</th>
+                            <th>Customer</th>
                             <th><a href="subscription?<?php echo $this->getSortURL(SubscriptionRow::SORT_BY_STATUS); ?>">Status</a></th>
                             <th><a href="subscription?<?php echo $this->getSortURL(SubscriptionRow::SORT_BY_DATE); ?>">Next Date</a></th>
                             <?php if($SessionUser->hasAuthority('ADMIN', 'SUB_ADMIN')) { ?>

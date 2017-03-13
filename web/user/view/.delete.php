@@ -107,7 +107,7 @@ $Theme->printHTMLMenu($category,    $action_url);
                             <td colspan="2"><hr/>Are you sure you want to permanently delete this user?<hr/></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                            <td class="name"><?php echo $SessionUser->getUsername(); ?> Password</td>
+                            <td class="name">Verify Password</td>
                             <td><input type="password" name="admin_password" value="" required autocomplete="on" /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">

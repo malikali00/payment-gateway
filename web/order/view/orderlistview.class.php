@@ -259,7 +259,7 @@ class OrderListView extends AbstractListView {
 								<td class="name">From</td>
 								<td>
 									<input type="date" name="date_from" value="<?php echo @$_GET['date_from']; ?>" /> to
-									<input type="date" name="date_to"   value="<?php echo @$_GET['date_to']; ?>"  />
+									<input type="date" name="date_to"   value="<?php echo @$_GET['date_to']; ?>" />
 								</td>
 							</tr>
 
@@ -267,8 +267,8 @@ class OrderListView extends AbstractListView {
                                 <tr>
                                     <td class="name">Limit</td>
                                     <td>
-                                        <select name="merchant_id" style="min-width: 20.5em;" >
-                                            <option value="">By Merchant</option>
+                                        <select name="merchant_id" style="min-width: 14em" >
+                                            <option value="" style="max-width: 14em;">By <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?></option>
                                             <?php
                                             $MerchantQuery = MerchantRow::queryAll();
                                             foreach($MerchantQuery as $Merchant)
@@ -285,7 +285,7 @@ class OrderListView extends AbstractListView {
                             <tr>
 								<td class="name">Search</td>
 								<td>
-									<input type="text" name="search" value="<?php echo @$_GET['search']; ?>" placeholder="ID, UID, MID, Amount, Card, Name, Invoice ID" size="42" />
+									<input type="text" name="search" value="<?php echo @$_GET['search']; ?>" placeholder="ID, UID, MID, Amount, Card, Name, Invoice ID" style="max-width: 14em;" />
                                 </td>
                             </tr>
                             <tr>
@@ -312,7 +312,7 @@ class OrderListView extends AbstractListView {
 								<th><a href="order?<?php echo $this->getSortURL(OrderRow::SORT_BY_ID); ?>">ID</a></th>
 								<th><a href="order?<?php echo $this->getSortURL(OrderRow::SORT_BY_DATE); ?>">Date</a></th>
 								<th><?php echo $SITE_CUSTOMER_NAME; ?>/ID</th>
-								<th><a href="order?<?php echo $this->getSortURL(OrderRow::SORT_BY_INVOICE_NUMBER); ?>">Invoice</a></th>
+								<th class="hide-on-layout-narrow"><a href="order?<?php echo $this->getSortURL(OrderRow::SORT_BY_INVOICE_NUMBER); ?>">Invoice</a></th>
                                 <th>Amount</th>
 								<th class="hide-on-layout-narrow">Mode</th>
 								<th><a href="order?<?php echo $this->getSortURL(OrderRow::SORT_BY_STATUS); ?>">Status</a></th>
@@ -340,7 +340,7 @@ class OrderListView extends AbstractListView {
 									<td style="max-width: 8em;">
                                         <?php echo $Order->getCustomerFullName(); ?>
                                     </td>
-                                    <td style="max-width: 8em;"><?php echo $Order->getInvoiceNumber(); ?></td>
+                                    <td class="hide-on-layout-narrow" style="max-width: 8em;"><?php echo $Order->getInvoiceNumber(); ?></td>
                                     <td style=" font-weight: bold;"><?php echo number_format($Order->getAmount() - $Order->getTotalReturnedAmount(), 2); ?></td>
 									<td class="hide-on-layout-narrow"><?php echo ucfirst($Order->getEntryMode()); ?></td>
 									<td><?php echo $Order->getStatus(); ?></td>

@@ -89,7 +89,7 @@ $Theme->printHTMLMenu($category,    $action_url);
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">User Timezone</td>
                                 <td>
-                                    <select name="timezone" required>
+                                    <select name="timezone" required style="max-width: 14em;">
                                         <?php
                                         $curtimezone = date_default_timezone_get();
                                         foreach(\System\Arrays\TimeZones::$TimeZones as $timezone => $name) {
@@ -153,13 +153,13 @@ $Theme->printHTMLMenu($category,    $action_url);
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Change Password</td>
                                 <td>
-                                    <input type="password" name="password" value="" autocomplete="off" />
+                                    <input type="password" name="password" value="" autocomplete="off" style="max-width: 7em;" />
                                     <button type="button" onclick="this.form.password.value = this.form.password_confirm.value = randomPassword(12); this.form.send_email_welcome.checked = true; ">Generate</button>
                                 </td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Confirm Password</td>
-                                <td><input type="password" name="password_confirm" value="" autocomplete="off" /></td>
+                                <td><input type="password" name="password_confirm" value="" autocomplete="off" style="max-width: 7em;" /></td>
                             </tr>
 
                             <?php if($SessionUser->hasAuthority("ADMIN", "SUB_ADMIN")) { ?>
@@ -190,8 +190,11 @@ $Theme->printHTMLMenu($category,    $action_url);
                                     <td><input type="password" name="admin_password" value="" required autocomplete="on" /></td>
                                 </tr>
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                    <td class="name">Send email to <br/><?php echo $User->getEmail(); ?></td>
-                                    <td><input type="checkbox" name="send_email_welcome" value="1" style="transform: scale(1.5);" /></td>
+                                    <td class="name">Send email</td>
+                                    <td>
+                                        <input type="checkbox" name="send_email_welcome" value="1" style="transform: scale(1.5);" />
+                                        <span style="font-size: smaller"><?php echo $User->getEmail(); ?></span>
+                                    </td>
                                 </tr>
                                 <?php } ?>
 

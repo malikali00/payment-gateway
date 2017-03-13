@@ -79,7 +79,7 @@ class AddUserView extends AbstractView
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">User Timezone</td>
                                 <td>
-                                    <select name="timezone" value="" required>
+                                    <select name="timezone" required style="max-width: 14em;">
                                         <?php
                                         $found = false;
                                         $curtimezone = date('P');

@@ -71,7 +71,7 @@ class TransactionRow
     protected $customer_id;
     protected $customer_last_name;
     protected $customermi;
-    protected $entry_mode;
+//    protected $entry_mode;
     protected $invoice_number;
     protected $payee_first_name;
     protected $payee_last_name;
@@ -325,33 +325,14 @@ LEFT JOIN integration_request ir on t.id = ir.type_id AND ir.type LIKE 'transact
             throw new \InvalidArgumentException("Invalid Amount");
 
         $TransactionRow = new TransactionRow();
-//        $TransactionRow->transaction_id = !empty($post['transaction_id'])
-//            ? $post['transaction_id'] : strtoupper(self::generateTransactionID());
         $TransactionRow->uid = strtoupper(self::generateGUID());
         $TransactionRow->date = date('Y-m-d G:i:s');
 
         $TransactionRow->order_item_id = $OrderRow->getID();
-//        $TransactionRow->batch_item_id;
         $TransactionRow->amount = $post['amount'];
-//        $TransactionRow->version = 10;
-//        $TransactionRow->entry_method = @$post['entry_method'] ?: "Default";
-//        $TransactionRow->is_reviewed = 0;
-//        $TransactionRow->return_type = 'Both';
-
 
         if(!empty($post['username']))
             $TransactionRow->username = $post['username'];
-
-//        $TransactionRow->action = $action;
-//        $TransactionRow->capture_to;
-//        $TransactionRow->auth_code_or_batch_id;
-
-//        $TransactionRow->returned_amount = 0;
-//        $TransactionRow->reviewed_by;
-//        $TransactionRow->reviewed_date_time;
-//        $TransactionRow->status_code;
-//        $TransactionRow->status_message;
-//        $TransactionRow->transaction_id;
 
         if(!$TransactionRow->order_item_id)
             throw new \InvalidArgumentException("Order Item ID was not set");

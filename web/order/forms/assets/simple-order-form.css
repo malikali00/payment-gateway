@@ -9,6 +9,7 @@
     display: block;
     font-size: smaller;
     margin: 1px 0 0 0;
+    white-space: nowrap;
 }
 
 .simple-order-form .field-row > span {

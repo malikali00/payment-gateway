@@ -14,7 +14,7 @@ $action_url = 'merchant?uid=' . $Merchant->getUID() . '&action=';
 $Theme = $this->getTheme();
 $Theme->addPathURL('merchant',      SiteConfig::$SITE_DEFAULT_MERCHANT_NAME . 's');
 $Theme->addPathURL($action_url,     $Merchant->getShortName());
-$Theme->addPathURL($action_url.'email-templates',     'Email Templates');
+$Theme->addPathURL($action_url.'email-templates',     'Emails');
 $Theme->renderHTMLBodyHeader();
 $Theme->printHTMLMenu('merchant-email-templates', $action_url);
 
@@ -43,19 +43,19 @@ if(!empty($_GET['class'])) {
                     <div class="page-buttons order-page-buttons hide-on-print">
                         <a href="<?php echo $action_url; ?>view" class="page-button page-button-view">
                             <div class="app-button large app-button-view" ></div>
-                            View <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            View
                         </a>
                         <a href="<?php echo $action_url; ?>edit" class="page-button page-button-edit">
                             <div class="app-button large app-button-edit" ></div>
-                            Edit <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            Edit
                         </a>
                         <a href="<?php echo $action_url; ?>email-templates" class="page-button page-button-edit disabled">
                             <div class="app-button large app-button-edit" ></div>
-                            Email Templates
+                            Emails
                         </a>
                         <a href="<?php echo $action_url; ?>delete" class="page-button page-button-delete disabled">
                             <div class="app-button large app-button-delete" ></div>
-                            Delete <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            Delete
                         </a>
                     </div>
 

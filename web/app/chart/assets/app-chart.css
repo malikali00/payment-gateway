@@ -1,8 +1,8 @@
 /** App Total **/
 
 .app-chart {
-    width: 450px;
-    height: 240px;
+    width: 370px;
+    height: 180px;
     /* min-height: 12em; */
     padding: 5px;
     margin: 10px 8px;
@@ -69,7 +69,7 @@
     /* position: absolute; */
     /* left: 0; */
     /* top: 0; */
-    width: 450px;
+    width: 350px;
     height: 240px;
     z-index: 19;
     /* user-select: none; */

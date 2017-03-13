@@ -233,7 +233,7 @@ LEFT JOIN state st on st.short_code = p.payee_state
         $PaymentRow = new PaymentRow();
         $PaymentRow->status = "Enabled";
 
-        if($OrderRow->getCardNumber()) {
+        if($OrderRow->getCardNumber() || $OrderRow->getCardTrack()) {
             $PaymentRow->card_number = $OrderRow->getCardNumber();
             $PaymentRow->card_exp_month = $OrderRow->getCardExpMonth();
             $PaymentRow->card_exp_year = $OrderRow->getCardExpYear();
@@ -248,7 +248,7 @@ LEFT JOIN state st on st.short_code = p.payee_state
             $PaymentRow->check_number = $OrderRow->getCheckNumber();
 
         } else {
-            throw new \Exception("Invalid payment information");
+            throw new \Exception("Invalid order payment information");
         }
 
         $PaymentRow->uid = strtoupper(self::generateGUID($PaymentRow));

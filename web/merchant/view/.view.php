@@ -43,19 +43,19 @@ $Theme->printHTMLMenu('merchant-view', $action_url);
                     <div class="page-buttons order-page-buttons hide-on-print">
                         <a href="<?php echo $action_url; ?>view" class="page-button page-button-view disabled">
                             <div class="app-button large app-button-view" ></div>
-                            View <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            View
                         </a>
                         <a href="<?php echo $action_url; ?>edit" class="page-button page-button-edit">
                             <div class="app-button large app-button-edit" ></div>
-                            Edit <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            Edit
                         </a>
                         <a href="<?php echo $action_url; ?>email-templates" class="page-button page-button-edit">
                             <div class="app-button large app-button-edit" ></div>
-                            Email Templates
+                            Emails
                         </a>
                         <a href="<?php echo $action_url; ?>delete" class="page-button page-button-delete disabled">
                             <div class="app-button large app-button-delete" ></div>
-                            Delete <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            Delete
                         </a>
                     </div>
                     <hr/>
@@ -368,45 +368,6 @@ $Theme->printHTMLMenu('merchant-view', $action_url);
                 </fieldset>
 
 
-                <fieldset>
-                    <div class="legend">
-                        Recent Orders: <?php echo $Merchant->getName(); ?>
-                    </div>
-                    <table class="table-results themed small striped-rows" style="width: 100%;">
-                        <tr>
-                            <th>ID</th>
-                            <th>Amount</th>
-                            <th><?php echo SiteConfig::$SITE_DEFAULT_CUSTOMER_NAME; ?></th>
-                            <th>Mode</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                        </tr>
-                        <?php
-                        /** @var \Order\Model\OrderRow $Order */
-
-                        $DB = \System\Config\DBConfig::getInstance();
-
-                        $OrderQuery = $DB->prepare(OrderRow::SQL_SELECT
-                            . "\nWHERE oi.merchant_id = ?"
-                            . OrderRow::SQL_ORDER_BY
-                            . "\nLIMIT 5");
-                        /** @noinspection PhpMethodParametersCountMismatchInspection */
-                        $OrderQuery->setFetchMode(\PDO::FETCH_CLASS, OrderRow::_CLASS);
-                        $OrderQuery->execute(array($this->getMerchant()->getID()));
-
-                        $odd = false;
-                        foreach($OrderQuery as $Order) { ?>
-                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td><a href='order?uid=<?php echo $Order->getUID(); ?>'><?php echo $Order->getID(); ?></a></td>
-                                <td>$<?php echo $Order->getAmount(); ?></td>
-                                <td><?php echo $Order->getPayeeFullName(); ?></td>
-                                <td><?php echo ucfirst($Order->getEntryMode()); ?></td>
-                                <td><?php echo $Order->getDate($SessionUser->getTimeZone())->format("M dS Y G:i:s"); ?></td>
-                                <td><?php echo $Order->getStatus(); ?></td>
-                            </tr>
-                        <?php } ?>
-                    </table>
-                </fieldset>
 
             </form>
         </section>

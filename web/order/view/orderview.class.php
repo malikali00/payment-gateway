@@ -183,7 +183,7 @@ class OrderView extends AbstractView
         $offset = 0; // $SessionUser->getTimeZoneOffset('America/Los_Angeles');
 //die($offset.'W');
         $Theme = $this->getTheme();
-        $Theme->addPathURL('order',        'Transactions');
+        $Theme->addPathURL('order',        'Orders');
         $Theme->addPathURL($action_url,    strtoupper($Order->getUID()));
         $Theme->renderHTMLBodyHeader();
         $Theme->printHTMLMenu('order-view', $action_url);
@@ -198,17 +198,17 @@ class OrderView extends AbstractView
 
 
                 <form name="form-order-view" id="form-order-view" class="themed" method="POST">
-                    <fieldset style="padding: 1em;">
+                    <fieldset style="padding: 1px;">
 
 
                         <div class="page-buttons order-page-buttons hide-on-print">
                             <a href="<?php echo $action_url_pdf; ?>" class="page-button page-button-print">
                                 <div class="app-button large app-button-print" ></div>
-                                Print  Receipt
+                                Receipt
                             </a>
 
                             <?php if($SessionUser->hasAuthority('VOID_CHARGE', 'ADMIN')) { ?>
-                            <a onclick='return confirmOrderViewAction("Void", event);' class="page-button page-button-void
+                            <a onclick='if(this.classList.contains("disabled")) return; return confirmOrderViewAction("Void", event);' class="page-button page-button-void
                                 <?php if($Order->getStatus() !== 'Authorized') echo ' disabled'; ?>
                                 ">
                                 <div class="app-button large app-button-void" ></div>
@@ -216,7 +216,7 @@ class OrderView extends AbstractView
                             </a>
                             <?php } ?>
                             <?php if($SessionUser->hasAuthority('RETURN_CHARGE', 'ADMIN')) { ?>
-                            <a onclick='return confirmOrderViewAction("Return", event);' class="page-button page-button-refund
+                            <a onclick='if(this.classList.contains("disabled")) return; return confirmOrderViewAction("Return", event);' class="page-button page-button-refund
                             <?php if($Order->getStatus() !== 'Settled') echo ' disabled'; ?>
                                 ">
                                 <div class="app-button large app-button-refund" ></div>

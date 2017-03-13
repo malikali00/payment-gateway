@@ -59,7 +59,7 @@ class UtilityPayViewTheme extends AbstractViewTheme
 
         <aside class="sub-header hide-on-print">
 
-            <a href="#" onclick="return toggleNavMenu(event);" class="menu-button-toggle" style="">
+            <a href="#" onclick="document.body.classList.toggle('layout-menu');" class="menu-button-toggle" style="">
                 <div class="menu-icon menu-icon-toggle"></div>
             </a>
             <span class="bread-crumbs">
@@ -135,7 +135,7 @@ class UtilityPayViewTheme extends AbstractViewTheme
             $vcss = $vjs = '';
 
         echo <<<HEAD
-        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=2, user-scalable=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2, user-scalable=1">
         
         <script src="assets/js/date-input/nodep-date-input-polyfill.dist.js"></script>
         

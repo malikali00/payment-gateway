@@ -89,7 +89,7 @@ class OrderRow
     protected $customer_last_name;
     protected $customermi;
 
-    protected $entry_mode;
+//    protected $entry_mode;
 
     protected $invoice_number;
 //    protected $order_item_id;
@@ -254,7 +254,15 @@ LEFT JOIN state st on st.short_code = oi.payee_state
 
     public function getConvenienceFee()     { return $this->convenience_fee; }
 
-    public function getEntryMode()          { return $this->entry_mode; }
+    public function getEntryMode()          {
+        if($this->card_track)
+            return self::ENUM_ENTRY_MODE_SWIPE;
+        if($this->card_number)
+            return self::ENUM_ENTRY_MODE_KEYED;
+        if($this->check_account_number)
+            return self::ENUM_ENTRY_MODE_CHECK;
+        return 'N/A';
+    }
 
     public function setStatus($status)      { $this->status = $status; }
 
@@ -424,7 +432,7 @@ LEFT JOIN state st on st.short_code = oi.payee_state
             ':customer_first_name' => $OrderRow->customer_first_name,
             ':customer_last_name' => $OrderRow->customer_last_name,
             ':customermi' => $OrderRow->customermi,
-            ':entry_mode' => $OrderRow->entry_mode,
+//            ':entry_mode' => $OrderRow->entry_mode,
             ':invoice_number' => $OrderRow->invoice_number,
 //            ':order_item_id' => $OrderRow->order_item_id,
             ':payee_first_name' => $OrderRow->payee_first_name,
@@ -527,19 +535,19 @@ LEFT JOIN state st on st.short_code = oi.payee_state
         if(SiteConfig::$SITE_MAX_TRANSACTION_AMOUNT>100 && $post['amount'] > SiteConfig::$SITE_MAX_TRANSACTION_AMOUNT)
             throw new \InvalidArgumentException("Invalid Max Transaction Amount: " . SiteConfig::$SITE_MAX_TRANSACTION_AMOUNT);
 
-        $OrderRow->entry_mode = $post['entry_mode'];
+//        $OrderRow->entry_mode = $post['entry_mode'];
         $OrderRow->amount = $post['amount'];
         $OrderRow->convenience_fee = $MerchantIdentity->calculateConvenienceFee($OrderRow);
 //        $OrderRow->order_item_id = rand(1999,9999); // TODO: fix?
 
-        if(in_array(strtolower($post['entry_mode']), array('keyed', 'swipe'))) {
-            $OrderRow->card_track = trim(@$post['card_track']);
+        if(!empty($post['card_track']) || !empty($post['card_number'])) { // in_array(strtolower($post['entry_mode']), array('keyed', 'swipe'))) {
+            $OrderRow->card_track = trim($post['card_track']);
             $OrderRow->card_exp_month = $post['card_exp_month'] ?: $PaymentInfo->getCardExpMonth();
             $OrderRow->card_exp_year = $post['card_exp_year'] ?: $PaymentInfo->getCardExpYear();
             $OrderRow->card_number = $post['card_number'] ?: $PaymentInfo->getCardNumber();
             $OrderRow->card_type = self::getCCType($OrderRow->card_number);
 
-        } else if(strtolower($post['entry_mode']) === 'check') {
+        } else if(!empty($post['check_account_number'])) {
             $OrderRow->check_account_name = $post['check_account_name']  ?: $PaymentInfo->getCheckAccountName();
             $OrderRow->check_account_bank_name = @$post['check_account_bank_name']  ?: $PaymentInfo->getCheckAccountBank();
             $OrderRow->check_account_number = $post['check_account_number'] ?: $PaymentInfo->getCheckAccountNumber();
@@ -549,7 +557,7 @@ LEFT JOIN state st on st.short_code = oi.payee_state
             $OrderRow->check_number = $post['check_number'] ?: $PaymentInfo->getCheckNumber();
 
         } else {
-            throw new \InvalidArgumentException("Invalid entry_mode");
+            throw new \InvalidArgumentException("Invalid payment data");
         }
 
         if(!empty($post['payee_full_name']))

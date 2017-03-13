@@ -17,12 +17,13 @@
 /** Page Body Container **/
 
 .body-container {
-    background-color: white;
+    /* background-color: white; */
     max-width: 1200px;
     /*border-radius: 7px;*/
-    margin: 10px auto 0px auto;
+    margin: 0px auto 0px auto;
     padding: 0 0 8px 0px;
     /*border: 1px solid #8FA2BF;*/
+    position: relative;
 }
 
 /** Vertical and Horizontal layout options **/
@@ -91,8 +92,8 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
 
 .spg-theme .menu-search {
     /* float: right; */
-    padding: 7px 24px 6px 31px;
-    margin: 5px 3px 3px 4px;
+    padding: 4px 9px 3px 25px;
+    margin: 1px 3px 1px 4px;
     border-radius: 6px;
     border: 1px inset;
     opacity: 0.7;
@@ -103,13 +104,13 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     position: relative;
     background: url('img/icons/btn_search.png') no-repeat #FFF;
     background-size: 24px;
-    background-position: 3px 4px;
+    background-position: 1px 0px;
 }
 
 .spg-theme .menu-search:focus,
 .spg-theme .menu-search:hover {
     opacity: 1;
-    max-width: 30em;
+    max-width: 35em;
     transition-delay: 0s;
     transition-duration: 0.6s;
 }
@@ -117,7 +118,7 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
 /** Article **/
 
 .spg-theme > article.themed {
-     /*margin-top: 0.5em;*/
+    /*margin-top: 0.5em;*/
 }
 .spg-theme > article.themed > section.content {/* background: #f0f4f6 linear-gradient(90deg, #ffffff 0%, #dae6ea 70%, #dae6ea 90%, #ffffff 100%); */}
 
@@ -129,23 +130,48 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     padding: 3em;
     clear: both;
 }
+.pointer{
+    display:none;
+    position:fixed;
+    right:3%;
+    bottom:10%;
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    text-align:center;
+    margin:0 auto;
+    padding-top:5px;
+    color:#21455b;
+    vertical-align: top;
+}
+.pointer:hover{
+    color:#2b89ab;
+}
+
+.pointer:active{
+    color:lightblue;
+}
+
 
 
 /** Page Menu **/
 
 .spg-theme ul.page-menu {
-    padding: 0 0px;
+    padding: 0 0;
     margin: 0 0;
-    display: inline-block;
+    /*display: inline-block;*/
     overflow: hidden;
     float: left;
-    font-size: larger;
+    max-width: 500px;
+    transition: max-width 0.5s ease-out, margin-left 0.4s;
 }
+
+/** Page Submenu **/
 
 .spg-theme ul.page-menu > li > ul {
     list-style: none;
     padding: 0 0;
-    margin: 0 0px 0 12px;
+    margin: 0 0 0 12px;
     max-height: 0;
     overflow:hidden;
     transition: max-height 0.6s ease-in;
@@ -164,45 +190,12 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
 }
 
 
-/** Menu Animation **/
+/** Menu Show/Hide **/
 
-.spg-theme.layout-full ul.page-menu + article.themed,
-.spg-theme.layout-narrow ul.page-menu:hover + article.themed {
-    margin-left: 12em;
-}
-.spg-theme.layout-narrow ul.page-menu + article.themed {
-    margin-left: 60px;
-}
-
-body.layout-narrow.spg-theme ul.page-menu:not(:hover) ul {
-    margin-left: 3px;
-    transition: margin-left 0.4s;
-}
-body.layout-narrow.spg-theme ul.page-menu {
-    transition: max-width 0.4s ease-out, margin-left 0.4s;
-}
-
-.spg-theme ul.page-menu span {
-    transition: opacity 0.4s, max-width 0.4s;
-    max-width: 100px;
-    opacity: 1;
-}
-
-body.layout-narrow.spg-theme ul.page-menu:not(:hover) span {
-    max-width: 0;
-    opacity: 0;
-    padding: 0 0;
-    margin: 0 0;
-    display: inline-block;
-}
-
-body.menu-hidden.spg-theme ul.page-menu {
+.spg-theme.layout-menu ul.page-menu{
     max-width: 0;
 }
 
-body.layout-narrow .hide-on-layout-narrow {
-    display: none;
-}
 
 
 
@@ -245,7 +238,7 @@ body.layout-vertical.spg-theme nav.page-menu {
 /** Menu Icons **/
 
 .spg-theme .menu-icon {
-    font-size: 9px;
+    font-size: 7px;
     background: url(img/nav_icons.png?v=3) no-repeat top left;
     background-size: 16em 24em;
     width: 4em;
@@ -259,24 +252,27 @@ body.layout-vertical.spg-theme nav.page-menu {
 
 .spg-theme .menu-icon.menu-icon-toggle {
     background-position: -4em 0;
-    transform: rotate(0deg);
+    transform: rotate(-90deg);
     transition: transform 0.5s;
 }
 
-.spg-theme.layout-narrow .menu-icon.menu-icon-toggle {
-    transform: rotate(90deg);
+.spg-theme.layout-menu .menu-icon.menu-icon-toggle {
+    transform: scaleX(0.2);
     transition: transform 0.5s;
 }
-.spg-theme .sub-header .menu-button-toggle {
-    display: inline-block;
+.spg-theme .menu-button-toggle {
     padding: 0px 0px 0px 5px;
-    margin: 1px 0 -2px 5px;
+    margin: 1px 0 -3px 0px;
+    display: none;
+}
+.spg-theme.layout-mobile .menu-button-toggle {
+    display: inline-block;
 }
 
 .spg-theme .sub-header .menu-button-account {
     /* height: 47px; */
     /* width: 52px; */
-    padding: 0px 3px 0px 0px;
+    margin: -2px 4px 0px 0px;
 }
 
 
@@ -298,11 +294,11 @@ body.layout-vertical.spg-theme nav.page-menu {
     /* display: none; */
     transition: max-height 1s ease-in, max-width 0.5s ease-in, display 1s;
     position: absolute;
-    right: 0;
+    right: 0px;
     z-index: 999;
     list-style: none;
     /* margin: 2px 0px 0px 0px; */
-    margin: 3px 0px;
+    margin: 0px 0px;
     padding: 0 0px 0px 1px;
     border-radius: 0 0  0 4px;
     background-color: #bcc5d1;
@@ -522,7 +518,7 @@ body.layout-vertical.spg-theme nav.page-menu {
     /* padding: 0.8em 0.5em 0.4em 0.9em; */
     background-color: #dae6ea;
     /* position: relative; */
-    min-height: 41px;
+    /* min-height: 41px; */
     /* display: block; */
     /* box-shadow: 0px 2px 2px #20465c; */
     background: linear-gradient(180deg, #dae6ea 15%, #dfeaed 50%,  #dae6ea 85%);
@@ -566,7 +562,7 @@ body.layout-vertical.spg-theme nav.page-menu {
     border-radius: 0.8em 0.8em 0 0;
     border: 1px outset;
     cursor: pointer;
-    width: 22%;
+    width: 20%;
     min-width: 4em;
     display: inline-block;
     background-color: #e7f0f3;
@@ -728,7 +724,7 @@ body.layout-vertical.spg-theme nav.page-menu {
 .spg-theme table.themed > tbody > tr > td {
     padding: 0.3em 0 0.3em 0.6em;
     vertical-align: middle;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     overflow: hidden;
     /* text-align: center; */
 }
@@ -868,6 +864,22 @@ body.layout-vertical.spg-theme nav.page-menu {
 .pagination a.current {
     background-color: #dae6ea;
 }
+
+/* Mobile Layout */
+
+.spg-theme.layout-mobile header.themed {
+    text-align:center;
+}
+
+@media screen and (max-width:480px) {
+
+    .menu-search-form{
+        display: none;
+    }
+
+}
+
+
 
 
 /** Printing **/

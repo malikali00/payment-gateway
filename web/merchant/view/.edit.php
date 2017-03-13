@@ -35,21 +35,21 @@ $Theme->printHTMLMenu('merchant-edit', $action_url);
                     <div class="page-buttons order-page-buttons hide-on-print">
                         <a href="<?php echo $action_url; ?>view" class="page-button page-button-view">
                             <div class="app-button large app-button-view" ></div>
-                            View <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            View
                         </a>
                         <a href="<?php echo $action_url; ?>edit" class="page-button page-button-edit disabled">
                             <div class="app-button large app-button-edit" ></div>
-                            Edit <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            Edit
                         </a>
 
                         <a href="<?php echo $action_url; ?>email-templates" class="page-button page-button-edit">
                             <div class="app-button large app-button-edit" ></div>
-                            Email Templates
+                            Emails
                         </a>
 
                         <a href="<?php echo $action_url; ?>delete" class="page-button page-button-delete disabled">
                             <div class="app-button large app-button-delete" ></div>
-                            Delete <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?>
+                            Delete
                         </a>
                     </div>
 

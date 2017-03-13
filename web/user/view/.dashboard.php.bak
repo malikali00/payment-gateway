@@ -155,7 +155,7 @@ $this->getTheme()->printHTMLMenu('dashboard');
                 <legend>Recent Transactions</legend>
                 <table class="table-results themed small striped-rows">
                     <tr>
-                        <th>Customer/ID</th>
+                        <th>Customer</th>
                         <th>Date</th>
                         <th>Amount</th>
                         <th class="hide-on-layout-narrow">Mode</th>

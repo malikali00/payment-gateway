@@ -212,7 +212,7 @@ class OrderReportView extends AbstractListView {
                                 <tr>
                                     <td class="name">Limit</td>
                                     <td>
-                                        <select name="merchant_id" style="min-width: 20.5em;" >
+                                        <select name="merchant_id" style="min-width: 15em;" >
                                             <option value="">By Merchant</option>
                                             <?php
                                             $MerchantQuery = MerchantRow::queryAll();

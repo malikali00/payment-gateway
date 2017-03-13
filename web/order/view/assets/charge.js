@@ -233,7 +233,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var lastEntryMode = null;
     function updateStyleSheetTheme(form) {
-        var entry_mode = form.entry_mode.value.toLowerCase() || 'keyed';
+        var entry_mode = form.entry_mode ? form.entry_mode.value : 'keyed';
+        entry_mode = entry_mode.toLowerCase();
 
         if(entry_mode !== lastEntryMode) {
             lastEntryMode = entry_mode;
@@ -287,6 +288,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     console.info("Switching to Entry mode: " + entry_mode);
     //                 form.entry_mode.value = entry_mode;
                     break;
+
+                default:
+                    console.error("Invalid Entry Mode: " + entry_mode);
             }
         }
 

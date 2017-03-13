@@ -143,9 +143,9 @@ class UserListView extends AbstractListView {
 						<th><a href="user?<?php echo $this->getSortURL(UserRow::SORT_BY_ID); ?>">ID</a></th>
 						<th><a href="user?<?php echo $this->getSortURL(UserRow::SORT_BY_LNAME); ?>">Name</a></th>
 						<th><a href="user?<?php echo $this->getSortURL(UserRow::SORT_BY_EMAIL); ?>">Email</a></th>
-						<th>Timezone</th>
-						<th>Created</th>
-                        <th>Merchant</th>
+						<th class="hide-on-layout-narrow">Timezone</th>
+						<th class="hide-on-layout-narrow">Created</th>
+                        <th class="hide-on-layout-narrow">Merchant</th>
 					</tr>
 					<?php
 					/** @var \User\Model\UserRow $User */
@@ -155,9 +155,9 @@ class UserListView extends AbstractListView {
 							<td><a href='user?uid=<?php echo $User->getUID(); ?>'><?php echo $User->getID(); ?></a></td>
 							<td><a href='user?uid=<?php echo $User->getUID(); ?>'><?php echo $User->getFullName(); ?></a></td>
 							<td><a href='mailto:<?php echo $User->getEmail(); ?>'><?php echo $User->getEmail(); ?></a></td>
-							<td><?php echo str_replace('_', '', $User->getTimeZone()); ?></td>
-							<td><?php echo $User->getCreateDate() ? date('Y-m-d', strtotime($User->getCreateDate())) : 'N/A'; ?></td>
-                            <td><a href='merchant/?uid=<?php echo $User->getMerchantUID(); ?>'><?php echo $User->getMerchantName() ?: "N/A"; ?></a></td>
+							<td class="hide-on-layout-narrow"><?php echo str_replace('_', '', $User->getTimeZone()); ?></td>
+							<td class="hide-on-layout-narrow"><?php echo $User->getCreateDate() ? date('Y-m-d', strtotime($User->getCreateDate())) : 'N/A'; ?></td>
+                            <td class="hide-on-layout-narrow"><a href='merchant/?uid=<?php echo $User->getMerchantUID(); ?>'><?php echo $User->getMerchantName() ?: "N/A"; ?></a></td>
 						</tr>
 					<?php } ?>
 				</table>

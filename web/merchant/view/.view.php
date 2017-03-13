@@ -62,7 +62,7 @@ $Theme->printHTMLMenu('merchant-view', $action_url);
 
 
                     <?php $odd = true; ?>
-                    <table class="table-merchant-info themed small striped-rows float-left-on-layout-horizontal" style="width: 50%;">
+                    <table class="table-merchant-info themed small striped-rows stretch-box" style="width: 50%;">
                         <?php if($Merchant->hasLogoPath()) { ?>
                         <tr>
                             <th colspan="2" class="section-break">Logo</th>
@@ -201,7 +201,7 @@ $Theme->printHTMLMenu('merchant-view', $action_url);
 
                     </table>
 
-                    <table class="table-merchant-info themed small striped-rows" style="width: 50%;">
+                    <table class="table-merchant-info themed small striped-rows stretch-box" style="width: 50%;">
 
                         <tr>
                             <th colspan="2" class="section-break">Fees</th>

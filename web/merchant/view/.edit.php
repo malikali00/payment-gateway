@@ -56,7 +56,7 @@ $Theme->printHTMLMenu('merchant-edit', $action_url);
                     <hr/>
 
 
-                    <table class="table-merchant-info themed small striped-rows" style="float: left; width: 49%;">
+                    <table class="table-merchant-info themed small striped-rows stretch-box" style="width: 50%;">
                         <tr>
                             <th colspan="2" class="section-break">Logo</th>
                         </tr>
@@ -274,7 +274,7 @@ $Theme->printHTMLMenu('merchant-edit', $action_url);
 
 
                     <?php $odd = false; ?>
-                    <table class="table-merchant-info themed small striped-rows" style="width: 49%">
+                    <table class="table-merchant-info themed small striped-rows stretch-box" style="width: 50%;">
                         <tr>
                             <th colspan="2" class="section-break">Contact Information</th>
                         </tr>

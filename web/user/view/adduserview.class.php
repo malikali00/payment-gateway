@@ -41,7 +41,7 @@ class AddUserView extends AbstractView
         $Theme->addPathURL('user',          'Users');
         $Theme->addPathURL('user/add.php',  'Add New User');
         $Theme->renderHTMLBodyHeader();
-        $Theme->printHTMLMenu('user-add');
+        $Theme->printHTMLMenu('admin-user-add');
 
         ?>
 

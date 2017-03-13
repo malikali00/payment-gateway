@@ -13,7 +13,7 @@ $Theme->addPathURL('integration',                   'Integration');
 $Theme->addPathURL('integration/request',           'Requests');
 $Theme->addPathURL($action_url,                     $Request->getID());
 $Theme->renderHTMLBodyHeader();
-$Theme->printHTMLMenu('integration-request-view',    $action_url);
+$Theme->printHTMLMenu('admin-integration-request-view',    $action_url);
 
 $SessionManager = new SessionManager();
 

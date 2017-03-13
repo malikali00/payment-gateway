@@ -12,7 +12,7 @@ $Theme = $this->getTheme();
 $Theme->addPathURL('integration',                   'Integration');
 $Theme->addPathURL($action_url,                     $Request->getID());
 $Theme->renderHTMLBodyHeader();
-$Theme->printHTMLMenu('integration-view',    $action_url);
+$Theme->printHTMLMenu('admin-integration-view',    $action_url);
 ?>
 
     <article class="themed">

@@ -63,7 +63,7 @@ class SPGViewTheme extends AbstractViewTheme
 
             <aside class="sub-header hide-on-print">
 
-                <a href="#" onclick="document.body.classList.toggle('layout-menu');" class="menu-button-toggle" style="">
+                <a href="#" onclick="document.body.classList.toggle('layout-menu'); return false;" class="menu-button-toggle" style="">
                     <div class="menu-icon menu-icon-toggle"></div>
                 </a>
                 <span class="bread-crumbs">
@@ -225,29 +225,29 @@ HEAD;
 
             <?php if($SessionUser->hasAuthority('ADMIN', 'SUB_ADMIN')) { ?>
             <li class="menu-submenu menu-submenu-integration">
-                <a href="integration" onclick="if (this.classList.toggle('current')) return false;" class="button<?php echo @$mc['integration']; ?>"> <div class="menu-icon menu-icon-integration"></div>
+                <a href="integration" onclick="this.classList.toggle('current'); return false;" class="button<?php echo @$mc['admin']; ?>"> <div class="menu-icon menu-icon-integration"></div>
                     <span>Admin</span></a>
                 <ul>
                     <li>
-                        <a href="user/list.php" class="button<?php echo @$mc['user-list']; ?>"><div class="menu-icon menu-icon-list"></div>
+                        <a href="user/list.php" class="button<?php echo @$mc['admin-user-list']; ?>"><div class="menu-icon menu-icon-list"></div>
                             <span>List Users</span></a>
                     </li>
                     <li>
-                        <a href="user/add.php" class="button<?php echo @$mc['user-add']; ?>"> <div class="menu-icon menu-icon-add"></div>
+                        <a href="user/add.php" class="button<?php echo @$mc['admin-user-add']; ?>"> <div class="menu-icon menu-icon-add"></div>
                             <span>Add User</span></a>
                     </li>
                     <li>
-                        <a href="merchant/add.php" class="button<?php echo @$mc['merchant-add']; ?>"><div class="menu-icon menu-icon-add"></div>
+                        <a href="merchant/add.php" class="button<?php echo @$mc['admin-merchant-add']; ?>"><div class="menu-icon menu-icon-add"></div>
                             <span>Add Merchant</span> </a>
                     </li>
 
                     <?php if($SessionUser->hasAuthority('ADMIN')) { ?>
                     <li>
-                        <a href="integration" class="button<?php echo @$mc['integration']; ?>"><div class="menu-icon menu-icon-list"></div>
+                        <a href="integration" class="button<?php echo @$mc['admin-integration']; ?>"><div class="menu-icon menu-icon-list"></div>
                             <span>API Endpoints</span></a>
                     </li>
                     <li>
-                        <a href="integration/request/" class="button<?php echo @$mc['integration-requests']; ?>"><div class="menu-icon menu-icon-list"></div>
+                        <a href="integration/request/" class="button<?php echo @$mc['admin-integration-requests']; ?>"><div class="menu-icon menu-icon-list"></div>
                             <span>API Requests</span></a>
                     </li>
                     <?php } ?>

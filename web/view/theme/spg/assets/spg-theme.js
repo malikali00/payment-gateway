@@ -10,32 +10,32 @@ document.addEventListener("DOMContentLoaded", function(e) {
     //     document.body.classList.remove('layout-full');
     //     document.body.classList.add('layout-narrow');
     // }
-    function onResize(e) {
-        if(document.body.classList.contains('layout-vertical'))
-            return;
-
-        var height = (e.srcElement || e.currentTarget).innerHeight;
-        var width = (e.srcElement || e.currentTarget).innerWidth;
-        if(width >= 920) { // > height / 1.2
-            if(document.body.classList.contains('layout-narrow')) {
-                document.body.classList.remove('layout-narrow');
-                document.body.classList.add('layout-full');
-                console.info("Changing body class to: layout-full");
-            }
-        } else {
-            if(!document.body.classList.contains('layout-narrow')) {
-                document.body.classList.add('layout-narrow');
-                document.body.classList.remove('layout-full');
-                console.info("Changing body class to: layout-narrow");
-            }
-        }
-    }
-    setTimeout(function(e) {
-        onResize({
-            srcElement: window
-        });
-    }, 100);
-    window.onresize = onResize;
+    // function onResize(e) {
+    //     if(document.body.classList.contains('layout-vertical'))
+    //         return;
+    //
+    //     var height = (e.srcElement || e.currentTarget).innerHeight;
+    //     var width = (e.srcElement || e.currentTarget).innerWidth;
+    //     if(width >= 920) { // > height / 1.2
+    //         if(document.body.classList.contains('layout-narrow')) {
+    //             document.body.classList.remove('layout-narrow');
+    //             document.body.classList.add('layout-full');
+    //             console.info("Changing body class to: layout-full");
+    //         }
+    //     } else {
+    //         if(!document.body.classList.contains('layout-narrow')) {
+    //             document.body.classList.add('layout-narrow');
+    //             document.body.classList.remove('layout-full');
+    //             console.info("Changing body class to: layout-narrow");
+    //         }
+    //     }
+    // }
+    // setTimeout(function(e) {
+    //     onResize({
+    //         srcElement: window
+    //     });
+    // }, 100);
+    // window.onresize = onResize;
 
     switch(location.host.toLowerCase()) {
         case 'localhost':

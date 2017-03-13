@@ -71,9 +71,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             return;
         }
 
+        var disabled = !form['status[enabled]'].checked;
         form.subject.disabled =
         form.body.disabled =
-        form.submit.disabled = form['status[enabled]'].checked;
+        form.submit.disabled = disabled;
 
     }
 });

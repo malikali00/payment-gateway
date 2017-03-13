@@ -137,8 +137,7 @@ if(!empty($_GET['class'])) {
                             </td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                            <td class="name">Body</td>
-                            <td style="padding-right: 24px;">
+                            <td colspan="2" style="padding-right: 24px;">
                                 <textarea name="body" style="width: 95%; min-height: 30em;"><?php echo $body; ?></textarea>
                             </td>
                         </tr>

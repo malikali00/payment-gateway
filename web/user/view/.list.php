@@ -10,7 +10,7 @@ $Theme = $this->getTheme();
 $Theme->addPathURL('user',             'Users');
 $Theme->addPathURL('user/list.php',    'Search');
 $Theme->renderHTMLBodyHeader();
-$Theme->printHTMLMenu('user-list');
+$Theme->printHTMLMenu('admin-user-list');
 ?>
     <article class="themed">
 

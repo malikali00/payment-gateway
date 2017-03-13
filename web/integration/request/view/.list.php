@@ -15,7 +15,7 @@ $Theme->addPathURL('integration',                   'Integration');
 $Theme->addPathURL('integration/request',           'Requests');
 $Theme->addPathURL('integration/request/list.php',    'Search');
 $Theme->renderHTMLBodyHeader();
-$Theme->printHTMLMenu('integration-request-list');
+$Theme->printHTMLMenu('admin-integration-request-list');
 ?>
 
     <article class="themed">

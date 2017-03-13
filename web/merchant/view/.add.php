@@ -15,7 +15,7 @@ $Theme = $this->getTheme();
 $Theme->addPathURL('merchant',      SiteConfig::$SITE_DEFAULT_MERCHANT_NAME . 's');
 $Theme->addPathURL('merchant/add.php',  'Add New Merchant');
 $Theme->renderHTMLBodyHeader();
-$Theme->printHTMLMenu('merchant-add');
+$Theme->printHTMLMenu('admin-merchant-add');
 ?>
 
 

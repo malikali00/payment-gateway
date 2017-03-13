@@ -86,7 +86,7 @@ HEAD;
 
                     <?php $Integration->renderChargeFormHiddenFields($MerchantIdentity); ?>
 
-                    <fieldset class="inline-block-on-layout-full" style="min-width:45%; ">
+                    <fieldset class="stretch-box" style="min-width:44%; ">
                         <div class="legend">Payment Method: <?php echo $Merchant->getName(); ?></div>
                         <table class="table-payment-method" style="float: left;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
@@ -102,7 +102,7 @@ HEAD;
                         </table>
                     </fieldset>
 
-                    <fieldset class="inline-block-on-layout-full" style="min-width:45%;">
+                    <fieldset class="stretch-box" style="min-width:44%;">
                         <div class="legend">Order Form Options</div>
                         <table class="table-choose-merchant" style="float: left;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
@@ -134,7 +134,7 @@ HEAD;
 
 
 
-                    <fieldset class="form-payment-method-credit inline-block-on-layout-full show-on-payment-method-card" style="min-width:45%; min-height: 21em;">
+                    <fieldset class="form-payment-method-credit stretch-box show-on-payment-method-card" style="min-width:44%; min-height: 21em;">
                         <div class="legend">Cardholder Information</div>
                         <table class="table-transaction-charge themed" style="display: inline-block;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
@@ -206,7 +206,7 @@ HEAD;
 
 
                     <div class="swipe-fullscreen-box-container show-on-payment-method-swipe">
-                        <fieldset class="themed swipe-fullscreen-box " style="min-width:45%; padding: 8px;">
+                        <fieldset class="themed swipe-fullscreen-box " style="min-width:44%; padding: 8px;">
                             <div class="legend alert reader-status">Please swipe your card now</div>
                             <br />
 
@@ -220,7 +220,7 @@ HEAD;
                         </fieldset>
                     </div>
 
-                    <fieldset class="form-payment-method-check inline-block-on-layout-full show-on-payment-method-check" style="min-width:45%; min-height: 21em;">
+                    <fieldset class="form-payment-method-check stretch-box show-on-payment-method-check" style="min-width:44%; min-height: 21em;">
                         <div class="legend">e-Check Information</div>
                         <table class="table-transaction-charge themed">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
@@ -271,7 +271,7 @@ HEAD;
                         </table>
                     </fieldset>
 
-                    <fieldset class="inline-block-on-layout-full" style="min-width:45%; min-height: 21em;">
+                    <fieldset class="stretch-box" style="min-width:44%; min-height: 21em;">
                         <div class="legend"><?php echo $SITE_CUSTOMER_NAME; ?> Fields</div>
                         <table class="table-transaction-charge themed" style="float: left;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
@@ -365,9 +365,9 @@ HEAD;
 
 
                     <?php if($MerchantForm->isRecurAvailable()) { ?>
-                    <fieldset class="inline-block-on-layout-full" style="display: inline-block; min-width: 94%;" <?php echo $MerchantForm->isRecurAvailable() ? '' : 'disabled '; ?>>
+                    <fieldset class="stretch-box" style="display: inline-block; min-width: 94%;" <?php echo $MerchantForm->isRecurAvailable() ? '' : 'disabled '; ?>>
                         <div class="legend">Re-bill Schedule</div>
-                        <table class="table-transaction-charge themed" style="float: left; width: 45%;">
+                        <table class="table-transaction-charge themed" style="float: left; width: 44%;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Re-bill Count</td>
                                 <td>
@@ -409,11 +409,11 @@ HEAD;
                     </fieldset>
                     <?php } ?>
 
-                    <fieldset class="<?php if($MerchantForm->isRecurAvailable()) { ?>inline-block-on-layout-full<?php } ?>" style="display: inline-block; min-width: 94%;"
+                    <fieldset class="<?php if($MerchantForm->isRecurAvailable()) { ?>stretch-box<?php } ?>" style="display: inline-block; min-width: 92%;"
                         <?php if(!empty($_GET['disabled'])) echo 'disabled="disabled"'; ?>
                     >
                         <div class="legend">Submit Payment</div>
-                        <table class="table-transaction-charge themed" style="width: 45%;">
+                        <table class="table-transaction-charge themed" style="width: 44%;">
                             <!--                        <tr class="row---><?php //echo ($odd=!$odd)?'odd':'even';?><!--">-->
                             <!--                            <td class="name">Convenience Fee</td>-->
                             <!--                            <td><input type="text" size="6" name="convenience_fee_total" value="$0.00" disabled="disabled" /></td>-->

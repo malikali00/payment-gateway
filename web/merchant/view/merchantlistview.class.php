@@ -152,8 +152,8 @@ class MerchantListView extends AbstractListView {
                                 <th><a href="merchant?<?php echo $this->getSortURL(MerchantRow::SORT_BY_NAME); ?>">Name</a></th>
                                 <th><a href="merchant?<?php echo $this->getSortURL(MerchantRow::SORT_BY_STATUS); ?>">Status</a></th>
                                 <th>Email</th>
-                                <th>State</th>
-								<th>Zip</th>
+                                <th class="hide-on-layout-narrow">State</th>
+								<th class="hide-on-layout-narrow">Zip</th>
 								<th>Users</th>
 							</tr>
 							<?php
@@ -165,8 +165,8 @@ class MerchantListView extends AbstractListView {
 									<td><a href='merchant?uid=<?php echo $Merchant->getUID(); ?>'><?php echo $Merchant->getName(); ?></a></td>
                                     <td><?php echo $Merchant->getStatusName(); ?></td>
 									<td><a target="_blank" href='mailto:<?php echo $Merchant->getMainEmailID(); ?>'><?php echo preg_replace('/^https?:\/\//i', '', $Merchant->getMainEmailID()); ?></a></td>
-									<td><?php echo $Merchant->getRegionCode(); ?></td>
-									<td><?php echo $Merchant->getZipCode(); ?></td>
+									<td class="hide-on-layout-narrow"><?php echo $Merchant->getRegionCode(); ?></td>
+									<td class="hide-on-layout-narrow"><?php echo $Merchant->getZipCode(); ?></td>
 									<td><a href='user?merchant_id=<?php echo $Merchant->getID(); ?>'><?php echo $Merchant->getUserCount(); ?></a></td>
 								</tr>
 							<?php } ?>

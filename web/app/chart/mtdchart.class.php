@@ -74,7 +74,9 @@ HTML;
                         options: {
                             title:{
                                 display:true,
-                                text:"Month To Date \${$amount} ({$count})"
+                                text:"Month To Date \${$amount} ({$count})",
+                                fontSize: 18,
+                                fontColor: '#333'
                             },
                             tooltips: {
                                 mode: 'index',

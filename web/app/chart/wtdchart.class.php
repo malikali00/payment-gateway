@@ -72,7 +72,9 @@ HTML;
                         options: {
                             title:{
                                 display:true,
-                                text:"Week To Date \${$amount} ({$count})"
+                                text:"Week To Date \${$amount} ({$count})",
+                                fontSize: 18,
+                                fontColor: '#333'
                             },
                             tooltips: {
                                 mode: 'index',

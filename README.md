@@ -1,6 +1,6 @@
-# Simon Payments Gateway
+# Simon Payments Integrated Gateway
 
-PHP/MySQL Integrated Payment Processor written by Ari Asulin
+PHP/MySQL Integrated Payment Processor by Ari.Asulin@gmail.com
 
 `© 2017 Simon Payments, LLC. All rights reserved.`
 
@@ -13,16 +13,28 @@ PHP > 5.5.0
 
 ```
 MySQL > 5.5
-User    paylogic2@localhost
-Pass    eVw{P7mphBn
 ```
 
-## Installing
+## Installing Instructions
 
+
+Check out the development repository
 ```
 $ git checkout dev;
+```
+
+Create the 'spg' database
+```
 $ mysql -p -e "CREATE SCHEMA spg";
+```
+
+Import the database schema
+```
 $ mysql -p spg < site/spg/spg.sql; 
+```
+
+Grant user 'spg' rights to the new database
+```
 $ mysql -p -e "GRANT SELECT, INSERT, UPDATE, DELETE ON spg.* TO 'spg'@'%';"
 ```
 
@@ -37,8 +49,24 @@ web/view/theme/spg/assets/spg-theme.js
 ```
 
 3. Commit & Push
+
+Check which files were modified
+```
+$ git status;
+$ git diff;
+```
+
+Add the modified files 
 ```
 $ git add .;
+```
+
+Commit the changes with a message
+```
 $ git commit -m "Site Theme Changes";
+```
+
+Push the changes to the repository
+```
 $ git push;
 ```

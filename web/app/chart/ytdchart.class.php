@@ -72,7 +72,9 @@ HTML;
                         options: {
                             title:{
                                 display:true,
-                                text:"Year To Date Sales \${$amount} ({$count})"
+                                text:"Year To Date Sales \${$amount} ({$count})",
+                                fontSize: 18,
+                                fontColor: '#333'
                             },
                             tooltips: {
                                 mode: 'index',

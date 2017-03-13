@@ -72,7 +72,9 @@ HTML;
                         options: {
                             title:{
                                 display:true,
-                                text:"Today's Sales \${$amount} ({$count})"
+                                text:"Today's Sales \${$amount} ({$count})",
+                                fontSize: 18,
+                                fontColor: '#333'
                             },
                             tooltips: {
                                 mode: 'index',

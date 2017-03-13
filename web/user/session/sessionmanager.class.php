@@ -32,11 +32,6 @@ class SessionManager
             $_SESSION[self::SESSION_KEY][self::SESSION_ID]))
                 return true;
 
-        if(SiteConfig::$SITE_AUTO_LOGIN_ENABLED) {
-            $this->loginGuestAccount(SiteConfig::$SITE_AUTO_LOGIN_ACCOUNT);
-            return true;
-        }
-
         return false;
     }
 

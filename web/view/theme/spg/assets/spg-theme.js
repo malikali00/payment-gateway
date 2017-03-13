@@ -2,12 +2,6 @@
  * Created by ari on 10/19/2016.
  */
 
-function toggleNavMenu(e) {
-    if(e) e.preventDefault();
-    var body = document.body;
-    document.body.classList.toggle('layout-menu');
-    // localStorage.setItem('layout-narrow', body.classList.contains('layout-narrow') ? '1' : '0');
-}
 
 // Initialize
 document.addEventListener("DOMContentLoaded", function(e) {

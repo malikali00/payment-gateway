@@ -162,7 +162,7 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     /*display: inline-block;*/
     overflow: hidden;
     float: left;
-    max-width: 500px;
+    max-width: 0;
     transition: max-width 0.5s ease-out, margin-left 0.4s;
 }
 
@@ -193,7 +193,7 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
 /** Menu Show/Hide **/
 
 .spg-theme.layout-menu ul.page-menu{
-    max-width: 0;
+    max-width: 500px;
 }
 
 
@@ -252,17 +252,17 @@ body.layout-vertical.spg-theme nav.page-menu {
 
 .spg-theme .menu-icon.menu-icon-toggle {
     background-position: -4em 0;
-    transform: rotate(-90deg);
+    transform: scaleX(0.2);
     transition: transform 0.5s;
 }
 
 .spg-theme.layout-menu .menu-icon.menu-icon-toggle {
-    transform: scaleX(0.2);
+    transform: rotate(-90deg);
     transition: transform 0.5s;
 }
 .spg-theme .menu-button-toggle {
     padding: 0px 0px 0px 5px;
-    margin: 1px 0 -3px 0px;
+    margin: 1px 0 -2px 5px;
     display: none;
 }
 .spg-theme.layout-mobile .menu-button-toggle {
@@ -495,17 +495,6 @@ body.layout-vertical.spg-theme nav.page-menu {
 
 
 
-
-.spg-theme nav.page-menu {
-    float: left;
-    margin: 0em 0.5em 1em 0.1em;
-    overflow-x: hidden;
-}
-
-body.layout-vertical.spg-theme nav.page-menu {
-    float: inherit;
-    margin: 0.6em;
-}
 
 
 

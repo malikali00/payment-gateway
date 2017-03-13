@@ -228,7 +228,7 @@ class OrderView extends AbstractView
                         <hr/>
 
                         <div style="text-align: center; ">
-                            <table class="table-transaction-info themed small inline-block-on-layout-full striped-rows" style="width: 47%; display: block; vertical-align: top; text-align: left;">
+                            <table class="table-transaction-info themed small striped-rows stretch-box" style="width: 47%; vertical-align: top; text-align: left;">
                                 <tbody>
                                 <tr>
                                     <td colspan="2" class="legend">
@@ -380,7 +380,7 @@ class OrderView extends AbstractView
                             </table>
 
 
-                            <table class="table-transaction-info themed small inline-block-on-layout-full striped-rows" style="width: 48%; display: block; vertical-align: top; text-align: left;">
+                            <table class="table-transaction-info themed small stretch-box striped-rows" style="width: 48%; vertical-align: top; text-align: left;">
                                 <tbody>
                                     <tr>
                                         <td colspan="2" class="legend">

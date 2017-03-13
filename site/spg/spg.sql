@@ -1,3 +1,11 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 12, 2017 at 10:12 PM
+-- Server version: 10.0.29-MariaDB-0ubuntu0.16.04.1
+-- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
 --
 -- Database: `spg`
@@ -173,7 +181,7 @@ CREATE TABLE `merchant` (
 --
 
 INSERT INTO `merchant` (`id`, `uid`, `branch`, `description`, `address1`, `address2`, `agent_chain`, `amex_external`, `city`, `convenience_fee_flat`, `convenience_fee_limit`, `convenience_fee_variable_rate`, `convenience_fee_merchant_id`, `discover_external`, `main_contact`, `main_email_id`, `name`, `title`, `dob`, `notes`, `open_date`, `sale_rep`, `short_name`, `sic`, `mcc`, `store_id`, `telephone`, `zipcode`, `country`, `state_id`, `status_id`, `url`, `logo_path`, `tax_id`, `business_tax_id`, `business_type`, `payout_type`, `payout_account_name`, `payout_account_type`, `payout_account_number`, `payout_bank_code`, `fraud_high_limit`, `fraud_low_limit`, `fraud_high_monthly_limit`, `fraud_flags`, `label_item`, `label_contact`, `integration_default_id`) VALUES
-  (1, 'TEST_MERCHANT', '', '', '1234 Test St.', NULL, '654321', '654321', 'Testerton', '0.00', '0.00', '4.00', 0, NULL, 'Tony G', 'test@sample.com', 'Dr. Who', NULL, NULL, NULL, '2013-05-03 00:00:00', 'Tony G', 'Dr. Who', '4900', '4900', '4', '666 5554444', '66554', 'USA', 1, 4, 'http://PAYLOGICNETWORK.COM', NULL, NULL, NULL, 'INDIVIDUAL_SOLE_PROPRIETORSHIP', 'BANK_ACCOUNT', NULL, NULL, NULL, NULL, 9999, 1, NULL, 10, '', '', 3);
+  (1, 'TEST_MERCHANT', '', '', '1234 Test St.', NULL, '654321', '654321', 'Testerton', '0.00', '0.00', '4.00', 0, NULL, 'Test Merchant', 'test@sample.com', 'Test Merchant', NULL, NULL, NULL, '2013-05-03 00:00:00', 'Test Merchant', 'Test Merchant', '4900', '4900', '4', '666 5554444', '66554', 'USA', 1, 1, 'http://PAYLOGICNETWORK.COM', NULL, NULL, NULL, 'INDIVIDUAL_SOLE_PROPRIETORSHIP', 'BANK_ACCOUNT', NULL, NULL, NULL, NULL, 9999, 1, NULL, 10, '', '', 5);
 
 -- --------------------------------------------------------
 
@@ -337,6 +345,13 @@ CREATE TABLE `order_item` (
   `integration_remote_id` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='										';
 
+--
+-- Dumping data for table `order_item`
+--
+
+INSERT INTO `order_item` (`id`, `uid`, `version`, `amount`, `card_exp_month`, `card_exp_year`, `card_number`, `status`, `date`, `invoice_number`, `entry_mode`, `card_type`, `check_account_name`, `check_account_bank_name`, `check_account_type`, `check_account_number`, `check_routing_number`, `check_type`, `check_number`, `customer_first_name`, `customer_id`, `customer_last_name`, `customermi`, `order_item_id`, `payee_first_name`, `payee_last_name`, `payee_phone_number`, `payee_reciept_email`, `payee_address`, `payee_address2`, `payee_zipcode`, `payee_city`, `payee_state`, `total_returned_amount`, `total_returned_service_fee`, `convenience_fee`, `username`, `merchant_id`, `integration_id`, `subscription_id`, `form_id`, `integration_remote_id`) VALUES
+  (2, 'SPOK-54E5-66B4-53AC-4D20', NULL, '4.00', '03', '18', 'XXXXXX1324', 'Mock Authorized', '2017-03-13 00:28:59', '', '', 'Visa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3423', NULL, 'Asulin', '', NULL, 'Ari', 'Asulin', '', '', '', '', '', '', NULL, '0.00', '0.00', '0.00', '', 1, 5, NULL, 101, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -499,9 +514,16 @@ CREATE TABLE `transaction` (
   `service_fee` decimal(9,2) NOT NULL,
   `status_code` varchar(255) NOT NULL,
   `status_message` varchar(255) NOT NULL,
-  `transaction_id` varchar(255) NOT NULL,
+  `transaction_id` varchar(255) DEFAULT NULL,
   `order_item_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `uid`, `version`, `action`, `amount`, `capture_to`, `date`, `entry_method`, `is_reviewed`, `return_type`, `returned_amount`, `reviewed_by`, `reviewed_date_time`, `service_fee`, `status_code`, `status_message`, `transaction_id`, `order_item_id`) VALUES
+  (1, '8713AA09-765B-475B-8C71-0C78C781A899', NULL, 'Mock Authorized', '4.00', 0, '2017-03-13 00:28:59', NULL, 0, '', NULL, NULL, NULL, '0.00', 'Success', 'Mock Transaction Approved', 'MOCK', 2);
 
 -- --------------------------------------------------------
 
@@ -529,8 +551,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `uid`, `email`, `fname`, `lname`, `password`, `username`, `date`, `timezone`, `authority`, `admin_id`, `merchant_id`) VALUES
-  (1, 'TEST_ADMIN', 'support@simonpayments.com', 'Test', 'Admin', 'TestAdmin', 'TestAdmin', '2016-10-18 12:51:33', 'America/New_York', 'admin,debug', NULL, 1),
-  (2, 'TEST_MERCHANT', 'TestMerchant@simonpayments.com', 'Test', 'Merchant', 'TestMerchant', 'TestMerchant', '2016-10-18 12:51:33', 'America/New_York', 'debug,post_charge,void_charge,return_charge,run_reports', 1, 1);
+  (1, 'TEST_ADMIN', 'support@simonpayments.com', 'Test', 'Admin', '8206d629db9722aa6c56cda609cecdbd', 'TestAdmin', '2016-10-18 12:51:33', 'America/New_York', 'admin,debug', NULL, 1),
+  (2, 'TEST_MERCHANT', 'TestMerchant@simonpayments.com', 'Test', 'Merchant', 'cfad9b58f4cd97acbfdf4bbbd7b86c8d', 'TestMerchant', '2016-10-18 12:51:33', 'America/New_York', 'debug,post_charge,void_charge,return_charge,run_reports', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -689,7 +711,7 @@ ALTER TABLE `email_template`
 -- AUTO_INCREMENT for table `integration`
 --
 ALTER TABLE `integration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `integration_request`
 --
@@ -699,7 +721,7 @@ ALTER TABLE `integration_request`
 -- AUTO_INCREMENT for table `merchant`
 --
 ALTER TABLE `merchant`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `merchant_form`
 --
@@ -714,17 +736,17 @@ ALTER TABLE `merchant_status`
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `payee`
 --
 ALTER TABLE `payee`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9146;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9124;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `state`
 --
@@ -734,17 +756,17 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `subscription`
 --
 ALTER TABLE `subscription`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --

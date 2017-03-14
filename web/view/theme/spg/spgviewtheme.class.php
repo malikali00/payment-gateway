@@ -23,7 +23,7 @@ class SPGViewTheme extends AbstractViewTheme
      * Add a path (bread crumb) url
      * @param $name
      * @param $url
-     * @return mixed
+     * @return void
      */
     public function addPathURL($url, $name) {
         $this->breadcrumbs[] = array($url, $name);

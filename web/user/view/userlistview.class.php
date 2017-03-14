@@ -122,10 +122,10 @@ class UserListView extends AbstractListView {
 					<tr>
 						<!--                            <td class="name">Search</td>-->
 						<td class="value">
-							<input type="text" name="search" value="<?php echo @$_GET['search']; ?>" placeholder="By ID, Name, Email" />
+							<input type="text" name="search" value="<?php echo @$_GET['search']; ?>" class="themed" placeholder="By ID, Name, Email" />
 						</td>
 						<td class="value">
-							<select name="limit">
+							<select name="limit" class="themed">
 								<?php
 								$limit = @$_GET['limit'] ?: 25;
 								foreach(array(10,25,50,100,250) as $opt)

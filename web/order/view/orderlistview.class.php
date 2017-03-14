@@ -390,7 +390,7 @@ class OrderListView extends AbstractListView {
 
                             <tr>
                                 <td colspan="6" style="text-align: right">
-                                    <span style="font-size: 0.7em; color: grey; float: left;">
+                                    <span style="font-size: 0.7em; color: grey; float: left; margin-top: 8px;">
 										<?php echo $statsMessage; ?>
                                     </span>
                                 </td>

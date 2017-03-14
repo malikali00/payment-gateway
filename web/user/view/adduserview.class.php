@@ -62,24 +62,24 @@ class AddUserView extends AbstractView
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Username</td>
-                                <td><input type="text" name="username" value="" required /></td>
+                                <td><input type="text" class="themed" name="username" value="" required /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Email</td>
-                                <td><input type="email" name="email" value="" required /></td>
+                                <td><input type="email" class="themed" name="email" value="" required /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">First Name</td>
-                                <td><input type="text" name="fname" value="" required/></td>
+                                <td><input type="text" class="themed" name="fname" value="" required/></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Last Name</td>
-                                <td><input type="text" name="lname" value="" required/></td>
+                                <td><input type="text" class="themed" name="lname" value="" required/></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">User Timezone</td>
                                 <td>
-                                    <select name="timezone" required style="max-width: 14em;">
+                                    <select name="timezone" required style="max-width: 14em;" class="themed" >
                                         <?php
                                         $found = false;
                                         $curtimezone = date('P');
@@ -106,18 +106,18 @@ class AddUserView extends AbstractView
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Password</td>
-                                <td><input type="password" name="password" value="" autocomplete="off" /></td>
+                                <td><input type="password" name="password" value="" autocomplete="off" class="themed" /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Password Confirm</td>
-                                <td><input type="password" name="password_confirm" value="" autocomplete="off" /></td>
+                                <td><input type="password" name="password_confirm" value="" autocomplete="off" class="themed"  /></td>
                             </tr>
                             <tr>
                                 <th colspan="2" class="section-break">Submit Form</th>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Send Email Confirmation</td>
-                                <td><input type="checkbox" checked="checked" name="send_email_welcome" value="1" /></td>
+                                <td><input type="checkbox" checked="checked" name="send_email_welcome" value="1" class="themed" /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Create User</td>

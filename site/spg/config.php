@@ -28,4 +28,4 @@ SiteConfig::$EMAIL_SERVER_PORT = 465; // 3535   80  25
 SiteConfig::$EMAIL_SMTP_AUTH = false; // true;
 SiteConfig::$EMAIL_SMTP_SECURE = 'ssl'; // 'tls';
 SiteConfig::$EMAIL_USERNAME = 'support@simonpayments.com';
-SiteConfig::$EMAIL_PASSWORD = 'LxcaHGCA9$ad';
+SiteConfig::$EMAIL_PASSWORD = 'P5PZ3HrS';

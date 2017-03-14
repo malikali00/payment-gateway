@@ -15,8 +15,13 @@ class ExceptionHandler
     const _CLASS = __CLASS__;
 
     public function handleException($ex) {
-        $ErrorView = new ErrorView($ex);
-        $ErrorView->renderHTML();
+        if( empty($_SERVER['REMOTE_ADDR']) and !isset($_SERVER['HTTP_USER_AGENT']) and count($_SERVER['argv']) > 0) {
+            echo $ex;
+
+        } else {
+            $ErrorView = new ErrorView($ex);
+            $ErrorView->renderHTML();
+        }
 
         if(!$ex instanceof \Exception)
             $ex = new \Exception($ex);

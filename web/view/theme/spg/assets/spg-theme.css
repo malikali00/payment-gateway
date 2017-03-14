@@ -901,6 +901,13 @@ body.layout-vertical.spg-theme nav.page-menu {
     text-align:center;
 }
 
+.spg-theme .show-on-layout-mobile {
+    display: none;
+}
+.spg-theme.layout-mobile .show-on-layout-mobile {
+    display: inherit;
+}
+
 .stretch-box {
 }
 table.stretch-box {

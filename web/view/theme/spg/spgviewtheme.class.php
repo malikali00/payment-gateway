@@ -174,7 +174,7 @@ HEAD;
         ?>
 
         <ul class="page-menu hide-on-print">
-            <li class="show-on-layout-narrow" style="text-align: center;">
+            <li class="show-on-layout-mobile" style="text-align: center;">
                 <a href="user/account.php" class="button<?php echo @$mc['user-account']; ?>">
                     <div class="menu-icon menu-icon-account"></div>
                     <br/>

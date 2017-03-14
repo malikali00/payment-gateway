@@ -69,6 +69,7 @@ HEAD;
                 <form name="form-transaction-charge"
                       class="default-order-form <?php echo $MerchantForm->getFormClasses(); ?> payment-method-keyed payment-method-card themed"
                       method="POST"
+                      style="white-space: nowrap;"
                     >
 
                     <input type="hidden" name="merchant_id" value="<?php echo $Merchant->getID(); ?>"/>
@@ -102,7 +103,7 @@ HEAD;
                         </table>
                     </fieldset>
 
-                    <fieldset class="stretch-box" style="min-width:44%;">
+                    <fieldset class="stretch-box" style="min-width:44%; white-space: normal;">
                         <div class="legend">Order Form Options</div>
                         <table class="table-choose-merchant" style="float: left;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
@@ -132,7 +133,7 @@ HEAD;
                         </table>
                     </fieldset>
 
-
+                    <br />
 
                     <fieldset class="form-payment-method-credit stretch-box show-on-payment-method-card" style="min-width:44%; min-height: 21em;">
                         <div class="legend">Cardholder Information</div>
@@ -363,6 +364,7 @@ HEAD;
                         </table>
                     </fieldset>
 
+                    <br />
 
                     <?php if($MerchantForm->isRecurAvailable()) { ?>
                     <fieldset class="stretch-box" style="display: inline-block; min-width: 94%;" <?php echo $MerchantForm->isRecurAvailable() ? '' : 'disabled '; ?>>

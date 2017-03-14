@@ -123,14 +123,14 @@ class MerchantListView extends AbstractListView {
 								<tr>
 									<td class="name"><?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?></td>
 									<td>
-										<input type="text" name="search" value="<?php echo @$_GET['search']; ?>" placeholder="Name, ID, UID" />
+										<input type="text" name="search" value="<?php echo @$_GET['search']; ?>" class="themed" placeholder="Name, ID, UID" />
 									</td>
 								</tr>
 								<tr>
 									<td class="name">Submit</td>
 									<td>
 										<input name="action" type="submit" value="Search" class="themed" />
-										<select name="limit">
+										<select name="limit" class="themed">
 											<?php
 											$limit = @$_GET['limit'] ?: 25;
 											foreach(array(10,25,50,100,250) as $opt)

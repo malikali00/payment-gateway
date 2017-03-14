@@ -695,21 +695,6 @@ body.layout-vertical.spg-theme nav.page-menu {
     background: linear-gradient(90deg, #eef5f7 40%, #ffffff 90%);
 }
 
-.spg-theme form.themed select,
-.spg-theme form.themed textarea,
-.spg-theme form.themed button,
-.spg-theme form.themed input[type=email],
-.spg-theme form.themed input[type=password],
-.spg-theme form.themed input[type=text] {
-    padding: 0.4em 0.6em;
-    /* border-radius: 0.3em; */
-    /* border-width: 1px; */
-    /* margin: 0px 0px 1px 0px; */
-    border: 1px inset rgba(33, 69, 91, 0.22);
-    border-radius: 3px;
-    box-shadow: 0px 1px 5px rgba(51, 51, 51, 0.21);
-}
-
 .spg-theme form.themed select.large,
 .spg-theme form.themed input.large {
     padding: 0.5em 1em;
@@ -717,18 +702,23 @@ body.layout-vertical.spg-theme nav.page-menu {
     font-size: large;
 }
 
+.spg-theme input[type=text].themed,
+.spg-theme input[type=file].themed,
+.spg-theme input[type=email].themed,
+.spg-theme input[type=password].themed,
+.spg-theme input[type=date].themed,
+.spg-theme input[type=datetime-local].themed,
 .spg-theme input[type=reset].themed,
 .spg-theme input[type=submit].themed,
 .spg-theme input[type=button].themed,
+.spg-theme select.themed,
+.spg-theme textarea.themed,
 .spg-theme button.themed {
     /* background: url('img/bk/input.button.png') repeat-x; */
     margin: 0.1em 0.1em;
     /* min-width: 80px; */
     border-radius: 5px;
-    text-transform: capitalize;
-    background-color: #3a7190;
-    background: linear-gradient(0deg, #3a7190 0%, #3a7190 50%, #3a7190 79%);
-    color: white;
+    /* text-transform: capitalize; */
     cursor: pointer;
     border: 1px solid #CCCCCC;
     border-right-color: #adabab;
@@ -736,8 +726,16 @@ body.layout-vertical.spg-theme nav.page-menu {
     box-shadow: 2px 2px 4px #CCC;
     font-size: .9em;
     font-weight: normal;
-    text-align: center;
     padding: 7px 10px;
+}
+
+.spg-theme input[type=reset].themed,
+.spg-theme input[type=submit].themed,
+.spg-theme input[type=button].themed,
+.spg-theme button.themed {
+    background: #3a7190 linear-gradient(0deg, #3a7190 0%, #3a7190 50%, #3a7190 79%);
+    color: white;
+    text-align: center;
 }
 
 .spg-theme input[type=reset].themed:hover,

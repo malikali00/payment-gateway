@@ -92,7 +92,7 @@ HEAD;
                         <table class="table-payment-method" style="float: left;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td>
-                                    <select name="entry_mode" class="" required autofocus title="Choose an entry method">
+                                    <select name="entry_mode" class="themed" required autofocus title="Choose an entry method">
                                         <!--                        <option value="">Choose a method</option>-->
                                         <option value="Keyed">Keyed Card</option>
                                         <option value="Swipe">Swipe Card</option>
@@ -108,7 +108,7 @@ HEAD;
                         <table class="table-choose-merchant" style="float: left;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td>
-                                    <select name="change_form_url" class=""
+                                    <select name="change_form_url" class="themed"
                                             title="Select a charge form template">
                                         <optgroup label="Switch Templates">
                                         <?php
@@ -140,20 +140,20 @@ HEAD;
                         <table class="table-transaction-charge themed" style="display: inline-block;">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">First Name</td>
-                                <td><input type="text" name="payee_first_name" placeholder="First Name" required /></td>
+                                <td><input type="text" name="payee_first_name" class="themed" placeholder="First Name" required /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Last Name</td>
-                                <td><input type="text" name="payee_last_name" placeholder="Last Name" required /></td>
+                                <td><input type="text" name="payee_last_name" class="themed" placeholder="Last Name" required /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Card Number</td>
-                                <td><input type="text" name="card_number" placeholder="xxxxxxxxxxxxxxxx" required pattern=".{5,16}" title=""/></td>
+                                <td><input type="text" name="card_number" class="themed" placeholder="xxxxxxxxxxxxxxxx" required pattern=".{5,16}" title=""/></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Card Type</td>
                                 <td>
-                                    <select name="card_type" required title="Choose a Card Type">
+                                    <select name="card_type" required class="themed" title="Choose a Card Type">
                                         <option value="">Choose an option</option>
                                         <option title="Visa">Visa</option>
                                         <option title="MasterCard">MasterCard</option>
@@ -164,12 +164,12 @@ HEAD;
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">**CVV</td>
-                                <td><input type="text" name="card_cvv2" placeholder="xxxx" autocomplete="off" style="width: 4em;" /></td>
+                                <td><input type="text" name="card_cvv2" class="themed" placeholder="xxxx" autocomplete="off" style="width: 4em;" /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Expiration</td>
                                 <td>
-                                    <select name='card_exp_month' id='expireMM' required title="Choose a card expiration month">
+                                    <select name='card_exp_month' id='expireMM' class="themed" required title="Choose a card expiration month">
                                         <option value=''>Month</option>
                                         <option value='01'>January</option>
                                         <option value='02'>February</option>
@@ -184,7 +184,7 @@ HEAD;
                                         <option value='11'>November</option>
                                         <option value='12'>December</option>
                                     </select>
-                                    <select name='card_exp_year' id='expireYY' required title="Choose an expiration year">
+                                    <select name='card_exp_year' id='expireYY' class="themed" required title="Choose an expiration year">
                                         <option value=''>Year</option>
                                         <?php for($i=date('y'); $i<64; $i++) { ?>
                                             <option value='<?php echo $i; ?>'>20<?php echo $i; ?></option>
@@ -212,9 +212,9 @@ HEAD;
                             <br />
 
                             <div>
-                                <textarea name="card_track" rows="8" placeholder="[MagTrack Data will appear here]" style="font-size: 1.3em; width: 90%;" ><?php // echo @$LASTPOST['card_track']; ?></textarea>
+                                <textarea name="card_track" rows="8" placeholder="[MagTrack Data will appear here]" class="themed" style="font-size: 1.3em; width: 90%;" ><?php // echo @$LASTPOST['card_track']; ?></textarea>
                                 <br />
-                                <input type="button" class='themed' value="Close" onclick="this.form.classList.add('swipe-input-successful'); return false;" />
+                                <input type="button" class='themed' value="Close" class="themed" onclick="this.form.classList.add('swipe-input-successful'); return false;" />
                             </div>
 
                             <br />
@@ -226,11 +226,11 @@ HEAD;
                         <table class="table-transaction-charge themed">
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Name on Account</td>
-                                <td><input type="text" name="check_account_name" placeholder="" /></td>
+                                <td><input type="text" name="check_account_name" class="themed" placeholder="" /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Bank Name</td>
-                                <td><input type="text" name="check_account_bank_name" placeholder="" /></td>
+                                <td><input type="text" name="check_account_bank_name" class="themed" placeholder="" /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Account Type</td>
@@ -244,20 +244,20 @@ HEAD;
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required" style="color: #000092;">
                                 <td class="name">Account Number</td>
-                                <td><input type="text" name="check_account_number" placeholder="" required /></td>
+                                <td><input type="text" name="check_account_number" class="themed" placeholder="" required /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required" style="color: #920000;">
                                 <td class="name">Routing Number</td>
-                                <td><input type="text" name="check_routing_number" placeholder="" required /></td>
+                                <td><input type="text" name="check_routing_number" class="themed" placeholder="" required /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required" style="color: #009200;">
                                 <td class="name">Check Number</td>
-                                <td><input type="text" name="check_number" placeholder="" /></td>
+                                <td><input type="text" name="check_number" class="themed" placeholder="" /></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Check Type</td>
                                 <td>
-                                    <select name="check_type" required title="Choose a Check Type">
+                                    <select name="check_type" required title="Choose a Check Type" class="themed">
                                         <option value="">Choose an option</option>
                                         <option>Personal</option>
                                         <option>Business</option>
@@ -278,43 +278,43 @@ HEAD;
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <td class="name">Payment Amount</td>
                                 <td>
-                                    <input type="text" name="amount" value=""  size="6" placeholder="x.xx" required autofocus/>
+                                    <input type="text" name="amount" value=""  size="6" class="themed" placeholder="x.xx" required autofocus/>
                                 </td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name"><?php echo $SITE_CUSTOMER_NAME; ?> Name</td>
                                 <td>
-                                    <input type="text" name="customer_first_name" placeholder="First Name" size="12" />
-                                    <input type="text" name="customermi" placeholder="MI" size="1" /> <br/>
-                                    <input type="text" name="customer_last_name" placeholder="Last Name" size="12" />
+                                    <input type="text" name="customer_first_name" class="themed" placeholder="First Name" size="12" />
+                                    <input type="text" name="customermi" class="themed" placeholder="MI" size="1" /> <br/>
+                                    <input type="text" name="customer_last_name" class="themed" placeholder="Last Name" size="12" />
                                 </td>
                             </tr>
                             <?php if($MerchantForm->hasField('payee_receipt_email')) { ?>
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <td class="name">Email</td>
-                                    <td><input type="text" name="payee_reciept_email" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/></td>
+                                    <td><input type="text" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/></td>
                                 </tr>
                             <?php } ?>
                             <?php if($MerchantForm->hasField('payee_phone_number')) { ?>
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <td class="name">Phone</td>
-                                    <td><input type="text" name="payee_phone_number" placeholder="xxx-xxx-xxxx" <?php echo $MerchantForm->isFieldRequired('payee_phone_number') ? 'required ' : ''; ?> /></td>
+                                    <td><input type="text" name="payee_phone_number" class="themed" placeholder="xxx-xxx-xxxx" <?php echo $MerchantForm->isFieldRequired('payee_phone_number') ? 'required ' : ''; ?> /></td>
                                 </tr>
                             <?php } ?>
 
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Billing Address</td>
                                 <td>
-                                    <input type="text" name="payee_address" placeholder="Address" />
+                                    <input type="text" name="payee_address" class="themed" placeholder="Address" />
                                     <br/>
-                                    <input type="text" name="payee_address2" placeholder="Address #2" />
+                                    <input type="text" name="payee_address2" class="themed" placeholder="Address #2" />
                                 </td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Billing Zip/State</td>
                                 <td>
-                                    <input type="text" name="payee_zipcode" placeholder="ZipCode" size="6" class="zip-lookup-field-zipcode" />
-                                    <select name="payee_state" style="width: 7em;" class='zip-lookup-field-state-short' title="Choose a billing state">
+                                    <input type="text" name="payee_zipcode" placeholder="ZipCode" size="6" class="zip-lookup-field-zipcode themed" />
+                                    <select name="payee_state" style="width: 7em;" class='zip-lookup-field-state-short themed' title="Choose a billing state">
                                         <option value="">State</option>
                                         <?php
                                         foreach(Locations::$STATES as $code => $name)
@@ -328,21 +328,21 @@ HEAD;
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Billing City</td>
                                 <td>
-                                    <input type="text" name="payee_city" size="10" placeholder="City" class='zip-lookup-field-city-title-case' />
+                                    <input type="text" name="payee_city" size="10" class="themed" placeholder="City" class='zip-lookup-field-city-title-case' />
                                 </td>
                             </tr>
 
                             <?php if($MerchantForm->hasField('customer_id')) { ?>
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <td class="name"><?php echo $SITE_CUSTOMER_NAME; ?>&nbsp;ID#</td>
-                                    <td><input type="text" name="customer_id" placeholder="Customer ID" <?php echo $MerchantForm->isFieldRequired('customer_id') ? 'required ' : ''; ?>/></td>
+                                    <td><input type="text" name="customer_id" class="themed" placeholder="Customer ID" <?php echo $MerchantForm->isFieldRequired('customer_id') ? 'required ' : ''; ?>/></td>
                                 </tr>
                             <?php } ?>
 
                             <?php if($MerchantForm->hasField('invoice_number')) { ?>
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <td class="name">Invoice&nbsp;ID#</td>
-                                    <td><input type="text" name="invoice_number" placeholder="Invoice Number" <?php echo $MerchantForm->isFieldRequired('invoice_number') ? 'required ' : ''; ?>/></td>
+                                    <td><input type="text" name="invoice_number" class="themed" placeholder="Invoice Number" <?php echo $MerchantForm->isFieldRequired('invoice_number') ? 'required ' : ''; ?>/></td>
                                 </tr>
                             <?php } ?>
 
@@ -354,7 +354,7 @@ HEAD;
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <td class="name"><?php echo $title; ?></td>
                                     <td>
-                                        <input type="text" name="<?php echo $field; ?>" placeholder="<?php echo $title; ?>" <?php echo $MerchantForm->isFieldRequired($field) ? 'required ' : ''; ?>/>
+                                        <input type="text" name="<?php echo $field; ?>" class="themed" placeholder="<?php echo $title; ?>" <?php echo $MerchantForm->isFieldRequired($field) ? 'required ' : ''; ?>/>
                                     </td>
                                 </tr>
                                 <?php
@@ -373,7 +373,7 @@ HEAD;
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Re-bill Count</td>
                                 <td>
-                                    <select name='recur_count' title="The number of times an order will automatically re-bill">
+                                    <select name='recur_count' title="The number of times an order will automatically re-bill" class="themed">
                                         <option value="0">Disabled</option>
                                         <?php
                                         for($i=1; $i<=99; $i++)
@@ -386,12 +386,12 @@ HEAD;
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Re-bill Amount</td>
-                                <td class="value"><input type="text" name="recur_amount" placeholder="x.xx" size="6" required="required"/></td>
+                                <td class="value"><input type="text" name="recur_amount" class="themed" placeholder="x.xx" size="6" required="required"/></td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">Re-bill Frequency</td>
                                 <td>
-                                    <select name='recur_frequency' title="Choose the frequency in which this order will automatically re-bill">
+                                    <select name='recur_frequency' class="themed" title="Choose the frequency in which this order will automatically re-bill">
                                         <?php
                                         //                                    if(empty($LASTPOST['recur_frequency']))
                                         //                                        $LASTPOST['recur_frequency'] = 'Monthly';
@@ -405,7 +405,7 @@ HEAD;
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">First Re-bill Date</td>
-                                <td><input type="date" name="recur_next_date" required="required" style="max-width: 10em;"/></td>
+                                <td><input type="date" name="recur_next_date" class="themed" required="required" style="max-width: 10em;"/></td>
                             </tr>
                         </table>
                     </fieldset>
@@ -425,7 +425,7 @@ HEAD;
                                     Total Charge Amount
                                 </td>
                                 <td>
-                                    <input type="text" size="6" name="total_amount" value="$0.00" disabled="disabled" />
+                                    <input type="text" size="6" name="total_amount" class="themed" value="$0.00" disabled="disabled" />
                                 </td>
                             </tr>
                             <tr>
@@ -438,7 +438,7 @@ HEAD;
                                         convenience fee of
                                         <br />
                                         <br />
-                                        <input type="text" size="6" name="convenience_fee" value="$0.00" disabled="disabled" style="float: right;" />
+                                        <input type="text" size="6" name="convenience_fee" class="themed" value="$0.00" disabled="disabled" style="float: right;" />
                                     </div>
                                 </td>
                             </tr>

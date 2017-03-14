@@ -258,8 +258,8 @@ class OrderListView extends AbstractListView {
 							<tr>
 								<td class="name">From</td>
 								<td>
-									<input type="date" name="date_from" value="<?php echo @$_GET['date_from']; ?>" /> to
-									<input type="date" name="date_to"   value="<?php echo @$_GET['date_to']; ?>" />
+									<input type="date" name="date_from" class="themed" value="<?php echo @$_GET['date_from']; ?>" /> to
+									<input type="date" name="date_to"   class="themed" value="<?php echo @$_GET['date_to']; ?>" />
 								</td>
 							</tr>
 
@@ -267,7 +267,7 @@ class OrderListView extends AbstractListView {
                                 <tr>
                                     <td class="name">Limit</td>
                                     <td>
-                                        <select name="merchant_id" style="min-width: 14em" >
+                                        <select name="merchant_id" class="themed" style="min-width: 14em" >
                                             <option value="" style="max-width: 14em;">By <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?></option>
                                             <?php
                                             $MerchantQuery = MerchantRow::queryAll();
@@ -285,20 +285,15 @@ class OrderListView extends AbstractListView {
                             <tr>
 								<td class="name">Search</td>
 								<td>
-									<input type="text" name="search" value="<?php echo @$_GET['search']; ?>" placeholder="ID, UID, MID, Amount, Card, Name, Invoice ID" style="max-width: 14em;" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="name">Submit</td>
-                                <td>
-                                    <input name="action" type="submit" value="Search" class="themed" />
-                                    <select name="limit">
+									<input type="text" name="search" class="themed" value="<?php echo @$_GET['search']; ?>" placeholder="ID, UID, MID, Amount, Card, Name, Invoice ID" style="max-width: 14em;" />
+                                    <select name="limit" class="themed">
                                         <?php
                                         $limit = @$_GET['limit'] ?: 25;
                                         foreach(array(10,25,50,100,250) as $opt)
                                             echo "<option", $limit == $opt ? ' selected="selected"' : '' ,">", $opt, "</option>\n";
                                         ?>
                                     </select>
+                                    <input name="action" type="submit" value="Search Orders" class="themed" style="float:right;" />
 								</td>
 							</tr>
 							</tbody>
@@ -355,7 +350,7 @@ class OrderListView extends AbstractListView {
 							<tr>
 								<td colspan="10" class="pagination">
 									<span style=""><?php $this->printPagination('order?'); ?></span>
-									<button name="action" type="submit" value="Export-Data" class="themed" style="float:right;">Export Data (.csv)</button>
+									<button name="action" type="submit" value="Export-Data" class="themed" style="float:right;">Export Data (.CSV)</button>
 								</td>
 							</tr>
 						</table>

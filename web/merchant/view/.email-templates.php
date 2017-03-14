@@ -128,23 +128,23 @@ if(!empty($_GET['class'])) {
                     <table class="table-merchant-info themed striped-rows" style="width: 100%;">
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Enabled</td>
-                            <td><input type="checkbox" name="status[enabled]" value="1" style="transform: scale(1.5);" /></td>
+                            <td><input type="checkbox" name="status[enabled]" class="themed" value="1" style="transform: scale(1.5);" /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Subject</td>
                             <td>
-                                <input type="text" name="subject" value="<?php echo $subject; ?>" style="width: 95%;"/>
+                                <input type="text" name="subject" class="themed" value="<?php echo $subject; ?>" style="width: 95%;"/>
                             </td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td colspan="2" style="padding-right: 24px;">
-                                <textarea name="body" style="width: 95%; min-height: 30em;"><?php echo $body; ?></textarea>
+                                <textarea name="body" class="themed" style="width: 95%; min-height: 30em;"><?php echo $body; ?></textarea>
                             </td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Update</td>
                             <td>
-                                <button type="submit" name="submit">Update Email Template</button>
+                                <button type="submit" name="submit" class="themed">Update Email Template</button>
                             </td>
                         </tr>
                     </table>

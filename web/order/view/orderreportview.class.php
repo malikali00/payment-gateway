@@ -202,8 +202,8 @@ class OrderReportView extends AbstractListView {
 							<tr>
 								<td class="name">From</td>
 								<td>
-									<input type="date" name="date_from" value="<?php echo @$_GET['date_from']; ?>" /> to
-									<input type="date" name="date_to"   value="<?php echo @$_GET['date_to']; ?>"  />
+									<input type="date" name="date_from" class="themed" value="<?php echo @$_GET['date_from']; ?>" /> to
+									<input type="date" name="date_to"   class="themed" value="<?php echo @$_GET['date_to']; ?>"  />
 								</td>
 							</tr>
 
@@ -212,7 +212,7 @@ class OrderReportView extends AbstractListView {
                                 <tr>
                                     <td class="name">Limit</td>
                                     <td>
-                                        <select name="merchant_id" style="min-width: 15em;" >
+                                        <select name="merchant_id" class="themed" style="min-width: 15em;" >
                                             <option value="">By Merchant</option>
                                             <?php
                                             $MerchantQuery = MerchantRow::queryAll();
@@ -231,21 +231,21 @@ class OrderReportView extends AbstractListView {
                             <tr>
 								<td class="name">Submit</td>
 								<td>
-									<select name="stats_group">
+									<select name="stats_group" class="themed">
 										<?php
 										$stats_group = @$_GET['stats_group'];
 										foreach(array('Day', 'Week', 'Month', 'Year') as $opt)
 											echo "<option value='{$opt}' ", $stats_group == $opt ? ' selected="selected"' : '' ,">By ", $opt, "</option>\n";
 										?>
 									</select>
-									<select name="limit">
+									<select name="limit" class="themed">
 										<?php
 										$limit = @$_GET['limit'] ?: 25;
 										foreach(array(10,25,50,100,250) as $opt)
 											echo "<option", $limit == $opt ? ' selected="selected"' : '' ,">", $opt, "</option>\n";
 										?>
 									</select>
-									<input name="action" type="submit" value="Generate" class="themed" />
+									<input name="action" type="submit" value="Generate Report" class="themed" style="float: right;" />
 								</td>
 							</tr>
 							</tbody>

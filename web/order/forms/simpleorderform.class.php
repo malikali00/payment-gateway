@@ -90,18 +90,18 @@ HEAD;
 
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <span><?php echo $SITE_CUSTOMER_NAME; ?> Name</span>
-                                <input type="text" name="payee_full_name" placeholder="Customer Name" required autofocus/>
+                                <input type="text" name="payee_full_name" class="themed" placeholder="Customer Name" required autofocus/>
                             </label>
 
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                 <span>Payment Amount</span>
-                                <input type="text" name="amount" value=""  size="6" placeholder="x.xx" required />
+                                <input type="text" name="amount" value="" class="themed" size="6" placeholder="x.xx" required />
                             </label>
 
                             <?php if($MerchantForm->hasField('payee_receipt_email')) { ?>
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>">
                                 <span>Email</span>
-                                <input type="text" name="payee_reciept_email" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/>
+                                <input type="text" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/>
                             </label>
                             <?php } ?>
 
@@ -109,23 +109,23 @@ HEAD;
                             <?php if($MerchantForm->hasField('payee_phone_number')) { ?>
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> <?php echo $MerchantForm->isFieldRequired('payee_phone_number') ? 'required ' : ''; ?>">
                                     <span>Phone</span>
-                                    <input type="text" name="payee_phone_number" placeholder="xxx-xxx-xxxx" <?php echo $MerchantForm->isFieldRequired('payee_phone_number') ? 'required ' : ''; ?> />
+                                    <input type="text" name="payee_phone_number" class="themed" placeholder="xxx-xxx-xxxx" <?php echo $MerchantForm->isFieldRequired('payee_phone_number') ? 'required ' : ''; ?> />
                                 </label>
                             <?php } ?>
 
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <span>Billing Address</span>
                                 <div style="display: inline-block;">
-                                    <input type="text" name="payee_address" placeholder="Address" />
+                                    <input type="text" name="payee_address" class="themed" placeholder="Address" />
                                     <br/>
-                                    <input type="text" name="payee_address2" placeholder="Address #2" />
+                                    <input type="text" name="payee_address2" class="themed" placeholder="Address #2" />
                                 </div>
                             </label>
 
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <span>Billing Zip/State</span>
-                                <input type="text" name="payee_zipcode" placeholder="ZipCode" size="6" class="zip-lookup-field-zipcode" />
-                                <select name="payee_state" style="width: 7em;" class='zip-lookup-field-state-short' title="Choose a billing state">
+                                <input type="text" name="payee_zipcode" placeholder="ZipCode" size="6" class="zip-lookup-field-zipcode themed" />
+                                <select name="payee_state" style="width: 7em;" class='zip-lookup-field-state-short themed' title="Choose a billing state">
                                     <option value="">State</option>
                                     <?php
                                     foreach(Locations::$STATES as $code => $name)
@@ -138,7 +138,7 @@ HEAD;
 
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <span>Billing City</span>
-                                <input type="text" name="payee_city" size="10" placeholder="City" class='zip-lookup-field-city-title-case' />
+                                <input type="text" name="payee_city" size="10" placeholder="City" class='zip-lookup-field-city-title-case themed' />
                             </label>
 
                         </div>
@@ -153,7 +153,7 @@ HEAD;
                             ?>
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> <?php echo $MerchantForm->isFieldRequired($field) ? 'required ' : ''; ?>">
                                 <span><?php echo $title; ?></span>
-                                <input type="text" name="<?php echo $field; ?>" placeholder="<?php echo $title; ?>" <?php echo $MerchantForm->isFieldRequired($field) ? 'required ' : ''; ?>/>
+                                <input type="text" name="<?php echo $field; ?>" class="themed" placeholder="<?php echo $title; ?>" <?php echo $MerchantForm->isFieldRequired($field) ? 'required ' : ''; ?>/>
                             </label>
                             <?php
                             }
@@ -167,11 +167,11 @@ HEAD;
 
                         <div class="entry-options">
                             <label class="entry-option entry-option-keyed">
-                                <input type="radio" name="entry_mode" value="Keyed" checked>
+                                <input type="radio" name="entry_mode" value="Keyed" class="themed"checked>
                                 Credit Card
                             </label>
                             <label class="entry-option entry-option-check">
-                                <input type="radio" name="entry_mode" value="Check">
+                                <input type="radio" name="entry_mode" value="Check" class="themed">
                                 e-Check
                             </label>
                         </div>
@@ -181,13 +181,13 @@ HEAD;
                             <div style="display: inline-block">
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Card Number</span>
-                                    <input type="text" name="card_number" placeholder="xxxxxxxxxxxxxxxx" required pattern=".{5,16}" />
+                                    <input type="text" name="card_number" class="themed" placeholder="xxxxxxxxxxxxxxxx" required pattern=".{5,16}" />
                                 </label>
 
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Card Type</span>
-                                    <select name="card_type" required title="Choose a Card Type">
+                                    <select name="card_type" class="themed" required title="Choose a Card Type">
                                         <option value="">Choose an option</option>
                                         <option title="Visa">Visa</option>
                                         <option title="MasterCard">MasterCard</option>
@@ -198,12 +198,12 @@ HEAD;
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <span>**CVV</span>
-                                    <input type="text" name="card_cvv2" placeholder="xxxx" autocomplete="off" style="width: 4em;" />
+                                    <input type="text" name="card_cvv2" placeholder="xxxx" class="themed" autocomplete="off" style="width: 4em;" />
                                 </label>
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Expiration</span>
-                                    <select name='card_exp_month' id='expireMM' required title="Choose a card expiration month">
+                                    <select name='card_exp_month' id='expireMM' class="themed" required title="Choose a card expiration month">
                                         <option value=''>Month</option>
                                         <option value='01'>January</option>
                                         <option value='02'>February</option>
@@ -218,7 +218,7 @@ HEAD;
                                         <option value='11'>November</option>
                                         <option value='12'>December</option>
                                     </select>
-                                    <select name='card_exp_year' id='expireYY' required title="Choose an expiration year">
+                                    <select name='card_exp_year' id='expireYY' class="themed" required title="Choose an expiration year">
                                         <option value=''>Year</option>
                                         <?php for($i=date('y'); $i<64; $i++) { ?>
                                             <option value='<?php echo $i; ?>'>20<?php echo $i; ?></option>
@@ -242,17 +242,17 @@ HEAD;
                             <div style="display: inline-block;">
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <span>Name on Account</span>
-                                    <input type="text" name="check_account_name" placeholder="" />
+                                    <input type="text" name="check_account_name" class="themed" placeholder="" />
                                 </label>
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <span>Bank Name</span>
-                                    <input type="text" name="check_account_bank_name" placeholder="" />
+                                    <input type="text" name="check_account_bank_name" class="themed" placeholder="" />
                                 </label>
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Account Type</span>
-                                    <select name="check_account_type" title="Choose a Checking Account Type">
+                                    <select name="check_account_type" class="themed" title="Choose a Checking Account Type">
                                         <option>Checking</option>
                                         <option>Savings</option>
                                     </select>
@@ -260,22 +260,22 @@ HEAD;
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Account Number</span>
-                                    <input type="text" name="check_account_number" placeholder="" required />
+                                    <input type="text" name="check_account_number" class="themed" placeholder="" required />
                                 </label>
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Routing Number</span>
-                                    <input type="text" name="check_routing_number" placeholder="" required />
+                                    <input type="text" name="check_routing_number" class="themed" placeholder="" required />
                                 </label>
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Check Number</span>
-                                    <input type="text" name="check_number" placeholder="" />
+                                    <input type="text" name="check_number" class="themed" placeholder="" />
                                 </label>
 
                                 <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                                     <span>Check Type</span>
-                                    <select name="check_type" title="Choose a Check Type">
+                                    <select name="check_type" class="themed" title="Choose a Check Type">
                                         <option>Personal</option>
                                         <option>Business</option>
                                     </select>
@@ -311,7 +311,7 @@ HEAD;
 
                         <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                             <span>Re-bill Count</span>
-                            <select name='recur_count' title="The number of times an order will automatically re-bill">
+                            <select name='recur_count' class="themed" title="The number of times an order will automatically re-bill">
                                 <option value="0">Disabled</option>
                                 <?php
                                 for($i=1; $i<=99; $i++)
@@ -324,7 +324,7 @@ HEAD;
 
                         <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                             <span>Re-bill Amount</span>
-                            <input type="text" name="recur_amount" placeholder="x.xx" size="6" required="required"/>
+                            <input type="text" name="recur_amount" class="themed" placeholder="x.xx" size="6" required="required"/>
                         </label>
 
                         <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
@@ -340,7 +340,7 @@ HEAD;
 
                         <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
                             <span>Next Re-bill Date</span>
-                            <input type="date" name="recur_next_date" required="required" style="max-width: 10em;"/>
+                            <input type="date" name="recur_next_date" class="themed" required="required" style="max-width: 10em;"/>
                         </label>
                     </fieldset>
                     <?php } ?>
@@ -351,9 +351,9 @@ HEAD;
                         <div class="legend">Submit Order</div>
 
 
-                        <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
+                        <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <span>Total</span>
-                            <input type="text" size="6" name="total_amount" value="$0.00" disabled="disabled" />
+                            <input type="text" size="6" name="total_amount" class="themed" value="$0.00" disabled="disabled" />
                         </label>
 
                         <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> ">
@@ -365,11 +365,11 @@ HEAD;
                                 convenience fee of
                                 <br />
                                 <br />
-                                <input type="text" size="6" name="convenience_fee" value="$0.00" disabled="disabled" style="float: right;" />
+                                <input type="text" size="6" name="convenience_fee" value="$0.00" class="themed" disabled="disabled" style="float: right;" />
                             </div>
                         </label>
 
-                        <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> required">
+                        <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <span>Submit</span>
                             <input type="submit" value="Pay Now" class="themed" />
                         </label>
@@ -384,7 +384,7 @@ HEAD;
                     <fieldset class="" style="max-width: 45em;">
                         <div class="legend">Form Options: <?php echo $Merchant->getName(); ?></div>
 
-                        <select name="change_form_url" class=""
+                        <select name="change_form_url" class="themed"
                                 title="Select a charge form template">
                             <optgroup label="Switch Templates">
                             <?php

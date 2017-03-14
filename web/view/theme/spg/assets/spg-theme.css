@@ -162,7 +162,14 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     color:lightblue;
 }
 
+/** Stats **/
 
+.stats-text {
+    font-size: 0.7em;
+    color: grey;
+    float: left;
+    margin-top: 8px;
+}
 
 /** Page Menu **/
 

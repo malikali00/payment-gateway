@@ -174,7 +174,8 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     float: left;
     /* max-width: 0; */
     max-height: 0;
-    transition: max-width 0.6s ease-out, max-height 0.6s ease-out;
+    width: 2px;
+    transition: all 0.3s ease-out;
     list-style: none;
     background-color: #dae6ea;
 }

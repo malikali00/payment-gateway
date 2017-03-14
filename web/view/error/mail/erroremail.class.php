@@ -38,7 +38,8 @@ class ErrorEmail extends \PHPMailer
         $sig = SiteConfig::$SITE_NAME;
 
         $content = "Exception: " . print_r($Ex, true);
-        $content .= "\nSession: " . print_r($_SESSION, true);
+        if(isset($_SESSION))
+            $content .= "\nSession: " . print_r($_SESSION, true);
 
         if (!empty($_SERVER['REMOTE_ADDR'])) {
             $ip = $_SERVER['REMOTE_ADDR'];

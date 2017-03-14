@@ -19,7 +19,7 @@
     border-radius: 0.6em;
     box-shadow: 2px 2px 8px #324857;
     /* border: 1px inset #bcc5d1; */
-    animation: slideDown ease-out 0.9s;
+    /*animation: slideDown ease-out 0.9s;*/
 }
 
 .login-section form.themed > fieldset > legend {

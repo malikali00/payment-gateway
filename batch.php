@@ -21,12 +21,10 @@ echo "\nBatch Updating Transactions ... ", __FILE__, PHP_EOL;
 // try log in
 $SessionManager = new \User\Session\SessionManager();
 $SessionUser = $SessionManager->getSessionUser();
-
-if(@chdir('integration/finix/batch')) {
+if (@chdir('integration/finix/batch')) {
     require('batch.php');
     chdir($cwd0);
 }
-
 
 if(chdir('integration/element/batch')) {
     require('batch.php');

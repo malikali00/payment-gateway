@@ -23,7 +23,7 @@ class SPGViewTheme extends AbstractViewTheme
      * Add a path (bread crumb) url
      * @param $name
      * @param $url
-     * @return mixed
+     * @return void
      */
     public function addPathURL($url, $name) {
         $this->breadcrumbs[] = array($url, $name);
@@ -99,8 +99,8 @@ class SPGViewTheme extends AbstractViewTheme
                     </ul>
                 </a>
 
-                <form class="menu-search-form" action="order" style="float: right;">
-                    <input name="menu-search" tabindex="1" type="text" class="menu-search themed" placeholder="Search TID, Name, Invoice" />
+                <form class="sub-header-search-form hide-on-layout-narrow" action="order" style="float: right; ">
+                    <input name="search" tabindex="1" type="text" class="menu-search themed" placeholder="Search TID, Name, Invoice" />
                 </form>
             </aside>
         <?php } ?>
@@ -174,6 +174,18 @@ HEAD;
         ?>
 
         <ul class="page-menu hide-on-print">
+            <li class="show-on-layout-mobile" style="text-align: center;">
+                <a href="user/account.php" class="button<?php echo @$mc['user-account']; ?>">
+                    <div class="menu-icon menu-icon-account"></div>
+                    <br/>
+                    <span>My Account</span>
+                </a>
+                <a href="#" onclick="return false;" class="button<?php echo @$mc['user-account']; ?>">
+                    <form class="menu-search-form" action="order" style="display: inline-block;">
+                        <input name="search" tabindex="1" type="text" class="menu-search themed" placeholder="Search TID, Name, Invoice" />
+                    </form>
+                </a>
+            </li>
             <li>
                 <a href="." class="button<?php echo @$mc['dashboard']; ?>"><div class="menu-icon menu-icon-dashboard"></div>
                     <span>Dashboard</span></a>
@@ -257,7 +269,7 @@ HEAD;
 
 
         <?php if(!$SessionManager->isGuestAccount()) { ?>
-            <li>
+            <li class="hide-on-layout-narrow">
                 <a href="user/account.php" class="button<?php echo @$mc['user-account']; ?>"> <div class="menu-icon menu-icon-account"></div>
                     <span>My Account</span></a>
             </li>

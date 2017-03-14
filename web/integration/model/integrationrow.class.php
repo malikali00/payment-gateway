@@ -52,6 +52,7 @@ FROM integration i
         foreach($params as $key=>$param)
             $this->$key = $param;
     }
+
     public function __set($key, $value) {
         error_log("Property does not exist: " . $key);
     }
@@ -59,6 +60,7 @@ FROM integration i
     // Properties
 
     protected $id;
+
     protected $uid;
     protected $name;
     protected $class_path;
@@ -69,16 +71,16 @@ FROM integration i
     protected $api_type;
     protected $api_credentials;
     protected $notes;
-
     // Calculated
 
     protected $request_success;
+
     protected $request_fail;
     protected $request_total;
-
     // Functions
 
     public function getID()             { return $this->id; }
+
     public function getUID()            { return $this->uid; }
     public function getName()           { return $this->name; }
     public function getClassPath()      { return $this->class_path; }
@@ -88,15 +90,14 @@ FROM integration i
     public function getAPIAppID()       { return $this->api_app_id; }
     public function getAPIType()        { return $this->api_type; }
     public function getNotes()          { return $this->notes; }
-
     public function getAPICredentialString() {
         return $this->api_credentials;
     }
 
     public function getSuccessCount()   { return $this->request_success; }
+
     public function getFailCount()      { return $this->request_fail; }
     public function getTotalCount()     { return $this->request_total; }
-
     public function updateFields($post) {
         $sqlSet = "";
         $params = array();
@@ -136,8 +137,8 @@ FROM integration i
         return $Integration;
     }
 
-
     // Static
+
 
     /**
      * @param $id
@@ -173,12 +174,12 @@ FROM integration i
         return $Integration;
     }
 
-    public static function queryAll($order = 'i.id DESC') {
+    public static function queryAll($SQLWhere=self::SQL_WHERE, $order = 'i.id DESC') {
+        $SQL = static::SQL_SELECT
+            . "\n" . $SQLWhere
+            . "\nORDER BY " . $order;
         $DB = DBConfig::getInstance();
-        $stmt = $DB->prepare(
-            static::SQL_SELECT
-            . static::SQL_WHERE
-            . "\nORDER BY " . $order);
+        $stmt = $DB->prepare($SQL);
         /** @noinspection PhpMethodParametersCountMismatchInspection */
         $stmt->setFetchMode(\PDO::FETCH_CLASS, self::_CLASS);
         $stmt->execute();

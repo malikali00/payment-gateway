@@ -160,16 +160,17 @@ FROM integration i
 
     /**
      * @param $uid
+     * @param bool $throwException
      * @return IntegrationRow
      */
-    public static function fetchByUID($uid) {
+    public static function fetchByUID($uid, $throwException=true) {
         $DB = DBConfig::getInstance();
         $stmt = $DB->prepare(static::SQL_SELECT . "WHERE i.uid = ?");
         /** @noinspection PhpMethodParametersCountMismatchInspection */
         $stmt->setFetchMode(\PDO::FETCH_CLASS, self::_CLASS);
         $stmt->execute(array($uid));
         $Integration = $stmt->fetch();
-        if(!$Integration)
+        if(!$Integration && $throwException)
             throw new \InvalidArgumentException("Integration not found: " . $uid);
         return $Integration;
     }

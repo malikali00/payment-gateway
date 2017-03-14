@@ -174,7 +174,7 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     float: left;
     /* max-width: 0; */
     max-height: 0;
-    width: 2px;
+    /* width: 2px; */
     transition: all 0.3s ease-out;
     list-style: none;
     background-color: #dae6ea;
@@ -182,6 +182,10 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
 
 /** Mobile Menu Layout **/
 
+.spg-theme.layout-mobile ul.page-menu {
+    max-width: none;
+    width: 1px;
+}
 .spg-theme.layout-menu.layout-mobile ul.page-menu {
     max-width: none;
     width: 100%;
@@ -295,7 +299,7 @@ body.layout-vertical.spg-theme nav.page-menu {
     /* font-size: 9px; */
 }
 .spg-theme .menu-button-toggle {
-    padding: 0px 0px 0px 0px;
+    /* padding: 0px 0px 0px 0px; */
     margin: 0 0 -3px 0;
     display: inline-block;
     text-decoration: none;

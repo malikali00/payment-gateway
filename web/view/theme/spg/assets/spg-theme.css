@@ -746,6 +746,16 @@ body.layout-vertical.spg-theme nav.page-menu {
     box-shadow: 1px 1px 1px #008ee9;
 }
 
+/** CheckBox **/
+
+
+.spg-theme input[type=checkbox].themed {
+    transform: scale(2);
+}
+
+
+
+/** Tables **/
 
 .spg-theme table.themed {border-spacing: 0 0;margin: 0 0px 0.5em 0px;/* min-width: 48%; *//* width: 100%; */}
 

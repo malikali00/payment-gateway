@@ -421,8 +421,27 @@ HEAD;
                             <!--                            <td><input type="text" size="6" name="convenience_fee_total" value="$0.00" disabled="disabled" /></td>-->
                             <!--                        </tr>-->
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
+                                <td class="name"><?php echo SiteConfig::$SITE_DEFAULT_CUSTOMER_NAME; ?> Receipt</td>
+                                <td>
+                                    <label style="display: block;">
+                                        <input type="checkbox" name="email_customer" value="1" checked="checked" class="themed"
+                                            onclick="this.form.payee_reciept_email.required = this.checked;"
+                                        />
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
+                                <td class="name"><?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?> Receipt</td>
+                                <td>
+                                    <label style="display: block;">
+                                        <input type="checkbox" name="email_merchant" value="1" checked="checked" class="themed"/>
+                                    </label>
+                                </td>
+                            </tr>
+
+                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name">
-                                    Total Charge Amount
+                                    Total
                                 </td>
                                 <td>
                                     <input type="text" size="6" name="total_amount" class="themed" value="$0.00" disabled="disabled" />
@@ -450,12 +469,7 @@ HEAD;
                                 <td class="name">Submit</td>
                                 <td>
                                     <input type="submit" value="Pay Now" class="themed" />
-                                </td>
-                            </tr>
-                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td class="name">Reset</td>
-                                <td>
-                                    <input type="reset" value="Reset" class="themed" onclick="return confirm('Are you sure you want to reset all form values?');" />
+                                    <input type="reset" value="Reset Form" class="themed" onclick="return confirm('Are you sure you want to reset all form values?');" />
                                 </td>
                             </tr>
                         </table>

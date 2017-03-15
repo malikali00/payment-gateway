@@ -348,8 +348,25 @@ HEAD;
                     <fieldset class="" style="clear: both; max-width: 45em;"
                         <?php if(!empty($_GET['disabled'])) echo 'disabled="disabled"'; ?>
                     >
-                        <div class="legend">Submit Order</div>
+                        <div class="legend">Email Receipts</div>
 
+
+                        <label class="field-row" style="display: block;">
+                            <span>Send <?php echo SiteConfig::$SITE_DEFAULT_CUSTOMER_NAME; ?></span>
+                            <input type="checkbox" name="email_customer" value="1" checked="checked" class="themed"
+                                   onclick="this.form.payee_reciept_email.required = this.checked;"
+                            />
+                        </label>
+                        <label class="field-row" style="display: block;">
+                            <span>Send <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?></span>
+                            <input type="checkbox" name="email_merchant" value="1" checked="checked" class="themed"/>
+                        </label>
+
+                    </fieldset>
+                    <fieldset class="" style="clear: both; max-width: 45em;"
+                        <?php if(!empty($_GET['disabled'])) echo 'disabled="disabled"'; ?>
+                    >
+                        <div class="legend">Submit Order</div>
 
                         <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <span>Total</span>
@@ -375,7 +392,7 @@ HEAD;
                         </label>
 
                         <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                            <span>Reset</span>
+                            <span>Reset Form</span>
                             <input type="reset" value="Reset" class="themed" onclick="return confirm('Are you sure you want to reset all form values?');" />
                         </label>
                     </fieldset>

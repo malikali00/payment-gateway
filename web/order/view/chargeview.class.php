@@ -162,9 +162,11 @@ class ChargeView extends AbstractView
             }
 
             // Send Receipt Emails
-            if($Order->getPayeeEmail()) {
+            if($Order->getPayeeEmail() && !empty($post['email_customer'])) {
                 $EmailReceipt = new ReceiptEmail($Order, $MerchantIdentity->getMerchantRow());
                 $EmailReceipt->send();
+            }
+            if(!empty($post['email_merchant'])) {
                 $EmailReceipt = new MerchantReceiptEmail($Order, $MerchantIdentity->getMerchantRow());
                 $EmailReceipt->send();
             }

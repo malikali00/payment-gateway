@@ -98,12 +98,10 @@ HEAD;
                                 <input type="text" name="amount" value="" class="themed" size="6" placeholder="x.xx" required />
                             </label>
 
-                            <?php if($MerchantForm->hasField('payee_receipt_email')) { ?>
                             <label class="field-row row-<?php echo ($odd=!$odd)?'odd':'even';?> <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>">
                                 <span>Email</span>
-                                <input type="text" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/>
+                                <input type="email" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/>
                             </label>
-                            <?php } ?>
 
 
                             <?php if($MerchantForm->hasField('payee_phone_number')) { ?>
@@ -140,10 +138,6 @@ HEAD;
                                 <span>Billing City</span>
                                 <input type="text" name="payee_city" size="10" placeholder="City" class='zip-lookup-field-city-title-case themed' />
                             </label>
-
-                        </div>
-                        <div style="float: left;">
-
 
                             <?php
                             foreach($MerchantForm->getAllCustomFields(true) as $field) {
@@ -353,13 +347,11 @@ HEAD;
 
                         <label class="field-row" style="display: block;">
                             <span>Send <?php echo SiteConfig::$SITE_DEFAULT_CUSTOMER_NAME; ?></span>
-                            <input type="checkbox" name="email_customer" value="1" checked="checked" class="themed"
-                                   onclick="this.form.payee_reciept_email.required = this.checked;"
-                            />
+                            <input type="checkbox" name="email_customer" value="1"  class="themed" />
                         </label>
                         <label class="field-row" style="display: block;">
-                            <span>Send <?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?></span>
-                            <input type="checkbox" name="email_merchant" value="1" checked="checked" class="themed"/>
+                            <span>Send Decline Email</span>
+                            <input type="checkbox" name="email_decline" value="1" class="themed"/>
                         </label>
 
                     </fieldset>

@@ -27,10 +27,6 @@ echo "\nTesting ... ", __FILE__, PHP_EOL;
 $cwd1 = getcwd();
 chdir('../../..');
 
-// Enable class autoloader
-spl_autoload_extensions('.class.php');
-spl_autoload_register();
-
 // Register Exception Handler
 //\System\Exception\ExceptionHandler::register();
 

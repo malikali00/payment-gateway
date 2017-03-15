@@ -161,15 +161,16 @@ class ChargeView extends AbstractView
                 }
             }
 
-            // Send Receipt Emails
+            // Send Customer Receipt
             if($Order->getPayeeEmail() && !empty($post['email_customer'])) {
                 $EmailReceipt = new ReceiptEmail($Order, $MerchantIdentity->getMerchantRow());
                 $EmailReceipt->send();
             }
-            if(!empty($post['email_merchant'])) {
-                $EmailReceipt = new MerchantReceiptEmail($Order, $MerchantIdentity->getMerchantRow());
-                $EmailReceipt->send();
-            }
+
+            // Send Merchant Receipt
+            $EmailReceipt = new MerchantReceiptEmail($Order, $MerchantIdentity->getMerchantRow());
+            $EmailReceipt->send();
+
 
             // TODO: If AJAX
 
@@ -191,10 +192,22 @@ class ChargeView extends AbstractView
             header('Location: ' . $baseHREF . 'order/charge.php');
 
             // Delete pending orders that didn't complete
-            if($Order) {
+            if($Order && !empty($post['email_decline'])) {
+
+                // Send Decline Emails
+                if($Order->getPayeeEmail() && !empty($post['email_customer'])) {
+                    $EmailReceipt = new DeclineEmail($Order, $MerchantIdentity->getMerchantRow());
+                    $EmailReceipt->send();
+                }
+
+                $EmailReceipt = new MerchantDeclineEmail($Order, $MerchantIdentity->getMerchantRow());
+                $EmailReceipt->send();
+
 
                 // Send Decline Emails
                 if($Order->getPayeeEmail()) {
+
+
                     $EmailReceipt = new DeclineEmail($Order, $MerchantIdentity->getMerchantRow());
                     $EmailReceipt->send();
                     $EmailReceipt = new MerchantDeclineEmail($Order, $MerchantIdentity->getMerchantRow());

@@ -167,7 +167,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         updateStyleSheetTheme(form);
 
-        checkForSwipeData(form)
+        checkForSwipeData(form);
+
+        formValidation(e, form);
+    }
+
+    function formValidation(e, form) {
+
+
+        if(form.email_customer && form.payee_reciept_email) {
+            if(form.payee_reciept_email.value) {
+                if(!form.email_customer.checked) {
+                    if(typeof form.email_customer.autocheck == 'undefined') {
+                        form.email_customer.autocheck = true;
+                        form.email_customer.checked = true;
+                        console.info("Email Receipt Enabled");
+                    }
+                }
+                form.email_customer.disabled = false;
+            } else {
+                form.email_customer.disabled = true;
+            }
+        }
+
+        if(form.email_customer && form.email_decline) {
+            form.email_decline.disabled = form.email_customer.disabled;
+        }
     }
 
     function checkForSwipeData(form) {

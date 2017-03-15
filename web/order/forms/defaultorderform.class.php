@@ -289,12 +289,10 @@ HEAD;
                                     <input type="text" name="customer_last_name" class="themed" placeholder="Last Name" size="12" />
                                 </td>
                             </tr>
-                            <?php if($MerchantForm->hasField('payee_receipt_email')) { ?>
-                                <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                    <td class="name">Email</td>
-                                    <td><input type="text" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/></td>
-                                </tr>
-                            <?php } ?>
+                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
+                                <td class="name">Email</td>
+                                <td><input type="email" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/></td>
+                            </tr>
                             <?php if($MerchantForm->hasField('payee_phone_number')) { ?>
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                     <td class="name">Phone</td>
@@ -421,20 +419,18 @@ HEAD;
                             <!--                            <td><input type="text" size="6" name="convenience_fee_total" value="$0.00" disabled="disabled" /></td>-->
                             <!--                        </tr>-->
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td class="name"><?php echo SiteConfig::$SITE_DEFAULT_CUSTOMER_NAME; ?> Receipt</td>
+                                <td class="name">Email <?php echo SiteConfig::$SITE_DEFAULT_CUSTOMER_NAME; ?></td>
                                 <td>
                                     <label style="display: block;">
-                                        <input type="checkbox" name="email_customer" value="1" checked="checked" class="themed"
-                                            onclick="this.form.payee_reciept_email.required = this.checked;"
-                                        />
+                                        <input type="checkbox" name="email_customer" value="1" class="themed" />
                                     </label>
                                 </td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td class="name"><?php echo SiteConfig::$SITE_DEFAULT_MERCHANT_NAME; ?> Receipt</td>
+                                <td class="name">Email Decline Notice</td>
                                 <td>
                                     <label style="display: block;">
-                                        <input type="checkbox" name="email_merchant" value="1" checked="checked" class="themed"/>
+                                        <input type="checkbox" name="email_decline" value="1"  class="themed"/>
                                     </label>
                                 </td>
                             </tr>

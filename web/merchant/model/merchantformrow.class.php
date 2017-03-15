@@ -142,7 +142,8 @@ FROM merchant_form mf
     public function getAllCustomFields($including_built_in_fields=false)
     {
         $list = array_keys($this->getFieldList());
-        $list = array_diff($list, array_keys(self::$BUILD_IN_FIELDS));
+        if(!$including_built_in_fields)
+            $list = array_diff($list, array_keys(self::$BUILD_IN_FIELDS));
         return $list;
     }
 

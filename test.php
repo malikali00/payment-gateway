@@ -35,16 +35,23 @@ foreach($Regex as $classFile) {
     include_once $classFile[0];
 }
 
+try {
+    // Test Finix Integration
+    chdir('integration/finix/test');
+    require('test.php');
+    chdir($cwd0);
+} catch (Exception $ex) {
+    echo $ex;
+}
 
-// Test Finix Integration
-chdir('integration/finix/test');
-require ('test.php');
-chdir($cwd0);
-
-// Test Element Integration
-chdir('integration/element/test');
-require ('test.php');
-chdir($cwd0);
+try {
+    // Test Element Integration
+    chdir('integration/element/test');
+    require ('test.php');
+    chdir($cwd0);
+} catch (Exception $ex) {
+    echo $ex;
+}
 
 // Test ProPay/ProtectPay Integration
 //chdir('integration/protectpay/test');

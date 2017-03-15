@@ -133,7 +133,7 @@ HEAD;
                         </table>
                     </fieldset>
 
-                    <br />
+                    <br class="hide-on-layout-narrow" />
 
                     <fieldset class="form-payment-method-credit stretch-box show-on-payment-method-card" style="min-width:44%; min-height: 21em;">
                         <div class="legend">Cardholder Information</div>
@@ -364,7 +364,7 @@ HEAD;
                         </table>
                     </fieldset>
 
-                    <br />
+                    <br class="hide-on-layout-narrow" />
 
                     <?php if($MerchantForm->isRecurAvailable()) { ?>
                     <fieldset class="stretch-box" style="display: inline-block; min-width: 94%;" <?php echo $MerchantForm->isRecurAvailable() ? '' : 'disabled '; ?>>

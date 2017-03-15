@@ -86,7 +86,7 @@ if(!empty($_GET['class'])) {
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Template</td>
                             <td>
-                                <select name="class_change">
+                                <select name="class_change" class="themed">
                                     <option value="">Choose an email template:</option>
                                     <?php
                                     foreach($AvailableEmailTemplates as $title => $class_option)

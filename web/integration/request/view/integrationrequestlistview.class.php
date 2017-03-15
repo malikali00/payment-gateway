@@ -149,19 +149,19 @@ class IntegrationRequestListView extends AbstractListView {
                             <tr>
                                 <td class="name">Limit</td>
                                 <td>
-                                    <select name="limit">
+                                    <select name="limit" class="themed">
                                         <?php
                                         $limit = @$_GET['limit'] ?: 10;
                                         foreach(array(10,25,50,100,250) as $opt)
                                             echo "<option", $limit == $opt ? ' selected="selected"' : '' ,">", $opt, "</option>\n";
                                         ?>
                                     </select>
-                                    <select name="type" style="min-width: 11.1em;" >
+                                    <select name="type" style="min-width: 11.1em;"  class="themed">
                                         <option value="">By Any Type</option>
                                         <option value="transaction">Transaction</option>
                                         <option value="merchant">Merchant</option>
                                     </select>
-                                    <select name="integration_id" >
+                                    <select name="integration_id"  class="themed">
                                         <option value="">By Integration</option>
                                         <?php
                                         $IntegrationQuery = IntegrationRow::queryAll();
@@ -177,7 +177,7 @@ class IntegrationRequestListView extends AbstractListView {
                             <tr>
                                 <td class="name">Value</td>
                                 <td>
-                                    <input type="text" name="search" value="<?php echo @$_GET['search']; ?>" placeholder="All Fields" size="33" />
+                                    <input type="text" name="search" class="themed" value="<?php echo @$_GET['search']; ?>" placeholder="All Fields" size="33" />
 
                                     <input type="submit" value="Search" class="themed" />
                                 </td>

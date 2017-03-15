@@ -36,24 +36,24 @@ $Theme->printHTMLMenu('admin-merchant-add');
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name" style="width: 20%;">Name</td>
-                            <td><input type="text" name="name" value="" required /></td>
+                            <td><input type="text" class="themed" name="name" value="" required /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Short Name</td>
-                            <td><input type="text" name="short_name" value="" /></td>
+                            <td><input type="text" class="themed" name="short_name" value="" /></td>
                         </tr>
 
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Main Contact</td>
-                            <td><input type="text" name="main_contact" value="" required /></td>
+                            <td><input type="text" class="themed" name="main_contact" value="" required /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Main Email Contact</td>
-                            <td><input type="email" name="main_email_id" value="" required /></td>
+                            <td><input type="email" class="themed" name="main_email_id" value="" required /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">URL</td>
-                            <td><input type="text" name="url" value=""/></td>
+                            <td><input type="text" class="themed" name="url" value=""/></td>
                         </tr>
                         <tr>
                             <th colspan="2" class="section-break">Business Info</th>
@@ -61,7 +61,7 @@ $Theme->printHTMLMenu('admin-merchant-add');
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Business Type</td>
                             <td>
-                                <select name="business_type" required>
+                                <select name="business_type" class="themed" required>
                                     <?php
                                     foreach(MerchantRow::$ENUM_BUSINESS_TYPE as $code=>$title)
                                         echo "<option value='", $code, "'",
@@ -74,24 +74,24 @@ $Theme->printHTMLMenu('admin-merchant-add');
 
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Phone Number</td>
-                            <td><input type="text" name="telephone" size="32" value="<?php echo $Merchant->getTelephone(); ?>" required /></td>
+                            <td><input type="text" name="telephone" class="themed" size="32" value="<?php echo $Merchant->getTelephone(); ?>" required /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Address</td>
-                            <td><input type="text" name="address1" size="32" value="<?php echo $Merchant->getAddress(); ?>" required /></td>
+                            <td><input type="text" name="address1" class="themed" size="32" value="<?php echo $Merchant->getAddress(); ?>" required /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Address 2</td>
-                            <td><input type="text" name="address2" size="32" value="<?php echo $Merchant->getAddress2(); ?>" /></td>
+                            <td><input type="text" name="address2" class="themed" size="32" value="<?php echo $Merchant->getAddress2(); ?>" /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">City</td>
-                            <td><input type="text" name="city" size="32" value="<?php echo $Merchant->getCity(); ?>" required /></td>
+                            <td><input type="text" name="city" class="themed" size="32" value="<?php echo $Merchant->getCity(); ?>" required /></td>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">State</td>
                             <td>
-                                <select name="state_id" required>
+                                <select name="state_id" class="themed" required>
                                     <?php
                                     $default_state = $Merchant->getRegionCode() ?: 'FL';
                                     $StateQuery = \System\Model\StateRow::queryAll();
@@ -106,13 +106,13 @@ $Theme->printHTMLMenu('admin-merchant-add');
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Zip</td>
-                            <td><input type="text" name="zipcode" size="12" value="<?php echo $Merchant->getZipCode(); ?>" required /></td>
+                            <td><input type="text" name="zipcode" class="themed" size="12" value="<?php echo $Merchant->getZipCode(); ?>" required /></td>
                         </tr>
 
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Country</td>
                             <td>
-                                <select name="country" required>
+                                <select name="country" class="themed" required>
                                     <?php
                                     $default_country = $Merchant->getCountryCode() ?: 'USA';
                                     foreach(\System\Arrays\Locations::$COUNTRIES as $code => $name)

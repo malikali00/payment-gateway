@@ -255,11 +255,11 @@ HEAD;
 
                     <?php if($SessionUser->hasAuthority('ADMIN')) { ?>
                     <li>
-                        <a href="integration" class="button<?php echo @$mc['admin-integration']; ?>"><div class="menu-icon menu-icon-list"></div>
+                        <a href="integration" class="button<?php echo @$mc['admin-integration-list']; ?>"><div class="menu-icon menu-icon-list"></div>
                             <span>API Endpoints</span></a>
                     </li>
                     <li>
-                        <a href="integration/request/" class="button<?php echo @$mc['admin-integration-requests']; ?>"><div class="menu-icon menu-icon-list"></div>
+                        <a href="integration/request/" class="button<?php echo @$mc['admin-integration-request-list']; ?>"><div class="menu-icon menu-icon-list"></div>
                             <span>API Requests</span></a>
                     </li>
                     <?php } ?>

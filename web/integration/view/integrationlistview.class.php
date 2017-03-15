@@ -64,7 +64,7 @@ class IntegrationListView extends AbstractListView {
 		$Theme->addPathURL('integration',             'Integration');
 		$Theme->addPathURL('integration/list.php',    'API Endpoints');
 		$Theme->renderHTMLBodyHeader();
-		$Theme->printHTMLMenu('integration-list');
+		$Theme->printHTMLMenu('admin-integration-list');
 ?>
 
 

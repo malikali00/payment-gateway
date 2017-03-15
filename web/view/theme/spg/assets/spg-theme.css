@@ -179,7 +179,7 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     /*display: inline-block;*/
     overflow: hidden;
     float: left;
-    /* max-width: 0; */
+    max-width: 0;
     max-height: 0;
     /* width: 2px; */
     transition: all 0.3s ease-out;

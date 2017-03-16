@@ -43,6 +43,9 @@ Thank you for your payment to <b>{$merchant_name}</b>.<br/>
     public function __construct(OrderRow $Order, MerchantRow $Merchant) {
         parent::__construct();
 
+        if(!$Order->getPayeeEmail())
+            throw new \InvalidArgumentException("Order does not have an email set: " . $Order->getUID());
+
         $SessionManager = new SessionManager();
         $SessionUser = $SessionManager->getSessionUser();
 
@@ -107,8 +110,6 @@ HTML;
 <div style="display: inline-block; width: 160px;">CC Type:</div>            {$card_type}<br/>
 HTML;
         $params['payment_information']  = $payment_info;
-
-
 
         $this->to = array(
             $Order->getPayeeEmail() => $Order->getPayeeFullName()

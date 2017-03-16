@@ -99,6 +99,9 @@ class ChargeView extends AbstractView
 //        if($this->hasMessage())
 //            echo "<h5>", $this->getMessage(), "</h5>";
 
+        if(isset($_SESSION[__FILE__]))
+            $params += $_SESSION[__FILE__];
+
         // Render Order Form
         $MerchantForm->renderHTML($MerchantIdentity, $params);
 
@@ -108,18 +111,19 @@ class ChargeView extends AbstractView
     }
 
     public function processFormRequest(Array $post) {
+        $baseHREF = defined("BASE_HREF") ? \BASE_HREF : '';
+        $location = 'order/charge.php';
+
         $Order = null;
         $SessionManager = new SessionManager();
         $SessionUser = $SessionManager->getSessionUser();
 
-        try {
-//            if(isset($_SESSION['order/charge.php']['order_id']))
-//                $post['order_id'] = $_SESSION['order/charge.php']['order_id'];
+        $MerchantIdentity = $this->merchantIdentity;
+        $Merchant = $MerchantIdentity->getMerchantRow();
 
-            // $_SESSION['order/charge.php'] = $post;
-            $MerchantIdentity = $this->merchantIdentity;
-            $Merchant = $MerchantIdentity->getMerchantRow();
-//            $Integration = $MerchantIdentity->getIntegrationRow();
+        $_SESSION[__FILE__] = $post;
+
+        try {
 
             if($SessionUser->hasAuthority('ADMIN')) {
 
@@ -154,6 +158,9 @@ class ChargeView extends AbstractView
             // Submit Transaction
             $Transaction = $MerchantIdentity->submitNewTransaction($Order, $SessionUser, $post);
 
+            $location = 'order/receipt.php?uid=' . $Order->getUID();
+            unset($_SESSION[__FILE__]);
+
             // Insert custom order fields
             foreach($OrderForm->getAllCustomFields(false) as $customField) {
                 if(!empty($post[$customField])) {
@@ -168,8 +175,10 @@ class ChargeView extends AbstractView
             }
 
             // Send Merchant Receipt
-            $EmailReceipt = new MerchantReceiptEmail($Order, $MerchantIdentity->getMerchantRow());
-            $EmailReceipt->send();
+            if($Merchant->getMainEmailID() && $Merchant->hasFlag(MerchantRow::FLAG_EMAIL_APPROVE)) {
+                $EmailReceipt = new MerchantReceiptEmail($Order, $MerchantIdentity->getMerchantRow());
+                $EmailReceipt->send();
+            }
 
 
             // TODO: If AJAX
@@ -179,49 +188,41 @@ class ChargeView extends AbstractView
             $SessionManager->setMessage(
                 "<div class='info'>Success: " . $Transaction->getStatusMessage() . "</div>"
             );
-//            unset($_SESSION['order/charge.php']);
-            $baseHREF = defined("BASE_HREF") ? \BASE_HREF : '';
-            header('Location: ' . $baseHREF . 'order/receipt.php?uid=' . $Order->getUID());
+            header('Location: ' . $baseHREF . $location);
             die();
 
         } catch (\Exception $ex) {
+
             $SessionManager->setMessage(
                 "<div class='error'>Error: " . $ex->getMessage() . "</div>"
             );
-            $baseHREF = defined("BASE_HREF") ? \BASE_HREF : '';
-            header('Location: ' . $baseHREF . 'order/charge.php');
+            header('Location: ' . $baseHREF . $location);
+
+            error_log($ex->getMessage());
 
             // Delete pending orders that didn't complete
-            if($Order && !empty($post['email_decline'])) {
-
+            if(!empty($post['email_decline']) && $Order) {
                 // Send Decline Emails
-                if($Order->getPayeeEmail() && !empty($post['email_customer'])) {
+                if ($Order->getPayeeEmail() && !empty($post['email_customer'])) {
                     $EmailReceipt = new DeclineEmail($Order, $MerchantIdentity->getMerchantRow());
                     $EmailReceipt->send();
                 }
 
-                $EmailReceipt = new MerchantDeclineEmail($Order, $MerchantIdentity->getMerchantRow());
-                $EmailReceipt->send();
+            }
 
-
-                // Send Decline Emails
-                if($Order->getPayeeEmail()) {
-
-
-                    $EmailReceipt = new DeclineEmail($Order, $MerchantIdentity->getMerchantRow());
-                    $EmailReceipt->send();
+            if($Order) {
+                // Send Merchant Receipt
+                if($Merchant->getMainEmailID() && $Merchant->hasFlag(MerchantRow::FLAG_EMAIL_APPROVE)) {
                     $EmailReceipt = new MerchantDeclineEmail($Order, $MerchantIdentity->getMerchantRow());
                     $EmailReceipt->send();
                 }
 
                 OrderRow::delete($Order);
             }
-            error_log($ex->getMessage());
-            
+
             // Send error email
             $Email = new ErrorEmail($ex);
             $Email->send();
-
 
             die();
         }

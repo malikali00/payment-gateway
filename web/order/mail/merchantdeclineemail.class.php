@@ -14,7 +14,7 @@ use System\Config\SiteConfig;
 use System\Mail\AbstractEmail;
 use User\Session\SessionManager;
 
-class MerchantDeclineEmail extends DeclineEmail
+class MerchantDeclineEmail extends MerchantReceiptEmail
 {
     const TITLE = "Merchant Payment Failed Email";
     const TEMPLATE_SUBJECT = '{$customer_full_name}: Payment Failure';

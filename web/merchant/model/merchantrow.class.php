@@ -18,19 +18,31 @@ class MerchantRow
     const _CLASS = __CLASS__;
     const TABLE_NAME = 'merchant';
 
-    const FRAUD_FLAG_DUPLICATE_CARD_DAILY = 0x01;
-    const FRAUD_FLAG_DUPLICATE_CARD_10MINUTE = 0x02;
-    const FRAUD_FLAG_DUPLICATE_DECLINE_CARD_DAILY = 0x04;
-    const FRAUD_FLAG_DUPLICATE_DECLINE_CARD_10MINUTE = 0x08;
+    // Fraud Flags
+    const FLAG_DUPLICATE_CARD_DAILY =                 0x0001;
+    const FLAG_DUPLICATE_CARD_10MINUTE =              0x0002;
+    const FLAG_DUPLICATE_DECLINE_CARD_DAILY =         0x0004;
+    const FLAG_DUPLICATE_DECLINE_CARD_10MINUTE =      0x0008;
+
+    // Email Flags
+    const FLAG_EMAIL_APPROVE =                              0x0100;
+    const FLAG_EMAIL_DECLINE =                              0x0200;
+    const FLAG_EMAIL_VOID =                                 0x0400;
+    const FLAG_EMAIL_RETURN =                               0x0800;
 
     const SORT_BY_ID = 'm.id';
     const LOGO_PATH = 'upload/logo/';
 
-    public static $FRAUD_FLAG_DESCRIPTIONS = array(
-        self::FRAUD_FLAG_DUPLICATE_CARD_DAILY => "Duplicate Approves (Same Day)",
-        self::FRAUD_FLAG_DUPLICATE_CARD_10MINUTE => "Duplicate Approves (10 minutes)",
-        self::FRAUD_FLAG_DUPLICATE_DECLINE_CARD_DAILY => "Duplicate Declines (Same Day)",
-        self::FRAUD_FLAG_DUPLICATE_DECLINE_CARD_10MINUTE => "Duplicate Declines (10 minutes)",
+    public static $FLAG_DESCRIPTIONS = array(
+        self::FLAG_EMAIL_APPROVE => "Email Receipt - Approved",
+        self::FLAG_EMAIL_DECLINE => "Email Receipt - Decline",
+        self::FLAG_EMAIL_VOID => "Email Receipt - Void",
+        self::FLAG_EMAIL_RETURN => "Email Receipt - Return",
+
+        self::FLAG_DUPLICATE_CARD_DAILY => "Avoid Duplicate Approves (Same Day)",
+        self::FLAG_DUPLICATE_CARD_10MINUTE => "Avoid Duplicate Approves (10 minutes)",
+        self::FLAG_DUPLICATE_DECLINE_CARD_DAILY => "Avoid Duplicate Declines (Same Day)",
+        self::FLAG_DUPLICATE_DECLINE_CARD_10MINUTE => "Avoid Duplicate Declines (10 minutes)",
     );
 
     const SORT_BY_NAME = 'm.name';

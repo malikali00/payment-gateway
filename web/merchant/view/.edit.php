@@ -286,7 +286,25 @@ $Theme->printHTMLMenu('merchant-edit', $action_url);
                         </tr>
 
                         <tr>
-                            <th colspan="2" class="section-break">Fraud Scrubbing</th>
+                            <th colspan="2" class="section-break">Settings</th>
+                        </tr>
+                        <?php
+                        foreach(MerchantRow::$FLAG_DESCRIPTIONS as $type => $description) {
+                        ?>
+                        <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
+                            <td class="name"><?php echo $description; ?></td>
+                            <td>
+                                <label style="display: block;">
+                                <input type='checkbox' name="fraud_flags[<?php echo $type; ?>]" style="transform: scale(1.8); margin: 0.44em;"
+                                       <?php echo $Merchant->hasFlag($type) ? ' checked' : ''; ?>
+                                 title="<?php echo $description; ?>"/>
+                                </label>
+                            </td>
+                        </tr>
+                        <?php } ?>
+
+                        <tr>
+                            <th colspan="2" class="section-break">Fraud Limits</th>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Transaction High Limit</td>
@@ -300,20 +318,7 @@ $Theme->printHTMLMenu('merchant-edit', $action_url);
                             <td class="name">Transaction High Monthly Limit</td>
                             <td><input type="text" class="themed" name="fraud_high_monthly_limit" value="<?php echo $Merchant->getFraudHighMonthlyLimit() ?: ''; ?>" placeholder="Monthly Transaction Limit" /></td>
                         </tr>
-                        <?php
-                        foreach(MerchantRow::$FRAUD_FLAG_DESCRIPTIONS as $type => $description) {
-                        ?>
-                        <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                            <td class="name"><?php echo $description; ?></td>
-                            <td>
-                                <label style="display: block;">
-                                <input type='checkbox' name="fraud_flags[<?php echo $type; ?>]" style="transform: scale(1.8); margin: 0.44em;"
-                                       <?php echo $Merchant->hasFlag($type) ? ' checked' : ''; ?>
-                                 title="<?php echo $description; ?>"/>
-                                </label>
-                            </td>
-                        </tr>
-                        <?php } ?>
+
                         <tr>
                             <th colspan="2" class="section-break">Payment Instrument</th>
                         </tr>

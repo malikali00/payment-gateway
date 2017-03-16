@@ -221,7 +221,21 @@ $Theme->printHTMLMenu('merchant-view', $action_url);
                         </tr>
 
                         <tr>
-                            <th colspan="2" class="section-break">Fraud Scrubbing</th>
+                            <th colspan="2" class="section-break">Settings</th>
+                        </tr>
+                        <?php
+                        foreach(MerchantRow::$FLAG_DESCRIPTIONS as $type => $description) {
+                            ?>
+                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
+                                <td class="name"><?php echo $description; ?></td>
+                                <td>
+                                    <?php echo $Merchant->hasFlag($type) ? '<strong>Yes</strong>' : 'No'; ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+
+                        <tr>
+                            <th colspan="2" class="section-break">Fraud Limits</th>
                         </tr>
                         <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                             <td class="name">Transaction High Limit (USD)</td>
@@ -235,17 +249,6 @@ $Theme->printHTMLMenu('merchant-view', $action_url);
                             <td class="name">Transaction High Monthly Limit (USD)</td>
                             <td><?php echo $Merchant->getFraudHighMonthlyLimit() ?: ''; ?></td>
                         </tr>
-                        <?php
-                        foreach(MerchantRow::$FRAUD_FLAG_DESCRIPTIONS as $type => $description) {
-                            ?>
-                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td class="name"><?php echo $description; ?></td>
-                                <td>
-                                    <?php echo $Merchant->hasFlag($type) ? '<strong>Yes</strong>' : 'No'; ?>
-                                </td>
-                            </tr>
-                        <?php } ?>
-
 
 
 <!--                        <tr>-->

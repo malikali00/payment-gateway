@@ -55,9 +55,9 @@ HEAD;
         $SessionManager = new SessionManager();
         $SessionUser = $SessionManager->getSessionUser();
 
-        $LASTPOST = array();
-        if(isset($_SESSION[__FILE__]))
-            $LASTPOST = $_SESSION[__FILE__];
+        $LASTPOST = $params; //array();
+//        if(isset($_SESSION[__FILE__]))
+//            $LASTPOST = $_SESSION[__FILE__];
 
         $SITE_CUSTOMER_NAME = SiteConfig::$SITE_DEFAULT_CUSTOMER_NAME;
 

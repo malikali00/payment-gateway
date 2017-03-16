@@ -26,6 +26,8 @@ class SiteConfig
     static $SITE_DEFAULT_LOGIN_PASSWORD = null;
     static $SITE_MAX_LOGO_WIDTH = 600;
     static $SITE_MAX_LOGO_HEIGHT = 300;
+    static $COOKIE_TIMEOUT = 86400 * 30;
+
     static $MAX_UPLOAD_SIZE = 409600;
 
     static $DEFAULT_THEME = null;
@@ -33,7 +35,6 @@ class SiteConfig
     static $BASE_HREF = '/';
 
     static $DEBUG_MODE = false;
-
     static $EMAIL_SERVER_HOST = null;
     static $EMAIL_USERNAME;
     static $EMAIL_PASSWORD;

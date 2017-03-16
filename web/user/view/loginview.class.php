@@ -24,7 +24,6 @@ class LoginView extends AbstractView {
     }
 
     protected function renderHTMLBody(Array $params) {
-        $Theme = $this->getTheme();
         if(!empty($params['message']))
             $this->setException(new \Exception($params['message']));
 
@@ -58,6 +57,7 @@ class LoginView extends AbstractView {
 
 
     public function processFormRequest(Array $post) {
+        $baseHREF = defined("BASE_HREF") ? \BASE_HREF : '';
         $SessionManager = new SessionManager();
 
         $action = isset($post['action']) ? $post['action'] : $this->action;
@@ -75,12 +75,17 @@ class LoginView extends AbstractView {
 
                     $SessionManager = new SessionManager();
                     $NewUser = $SessionManager->login($username, $password);
+
+                    if(!empty($post['cookie'])) {
+                        $SessionManager->createLoginCookie($NewUser);
+                    }
+
                     $SessionManager->setMessage("Logged in as " . $NewUser->getUsername());
-                    header("Location: index.php");
+                    header("Location: {$baseHREF}index.php");
 
                 } catch (\Exception $ex) {
                     $SessionManager->setMessage("<div class='error'>" . $ex->getMessage() . "</div>");
-                    header("Location: login.php");
+                    header("Location: {$baseHREF}login.php");
                 }
                 break;
 
@@ -101,7 +106,7 @@ class LoginView extends AbstractView {
 
                 } catch (\Exception $ex) {
                     $SessionManager->setMessage("<div class='error'>" . $ex->getMessage() . "</div>");
-                    header("Location: login.php");
+                    header("Location: {$baseHREF}login.php");
                 }
                 break;
 
@@ -126,37 +131,37 @@ class LoginView extends AbstractView {
                             $SessionManager->setMessage("<div class='info'>Password was reset successfully</div>");
                         else
                             $SessionManager->setMessage("<div class='error'>Error: Password was not reset</div>");
-                        header("Location: login.php");
+                        header("Location: {$baseHREF}login.php");
                         die();
                     }
 
                     // If no key, send a reset link
                     if(!$User) {
                         $SessionManager->setMessage("<div class='error'>User was not found</div>");
-                        header("Location: reset.php?key={$key}&email={$email}");
+                        header("Location: {$baseHREF}reset.php?key={$key}&email={$email}");
                         die();
                     }
 
                     if(!$Email->send()){
                         $SessionManager->setMessage("<div class='error'>". $Email->ErrorInfo . "</div>");
-                        header("Location: reset.php?key={$key}&email={$email}");
+                        header("Location: {$baseHREF}reset.php?key={$key}&email={$email}");
                         die();
                     } else {
                         $SessionManager->setMessage("<div class='info'>Email was sent successfully</div>");
                     }
 
-                    header("Location: login.php");
+                    header("Location: {$baseHREF}login.php");
                     die();
                 } catch (\Exception $ex) {
                     $SessionManager->setMessage("<div class='error'>" . $ex->getMessage() . "</div>");
-                    header("Location: reset.php?key={$key}&email={$email}");
+                    header("Location: {$baseHREF}reset.php?key={$key}&email={$email}");
                     die();
                 }
             break;
 
             default:
                 $SessionManager->setMessage("Unknown action");
-                header("Location: login.php");
+                header("Location: {$baseHREF}login.php");
                 die();
         }
     }

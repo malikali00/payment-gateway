@@ -13,6 +13,7 @@ use System\Config\DBConfig;
 use System\Config\SiteConfig;
 use User\Model\GuestUser;
 use User\Model\UserRow;
+use User\Session\Model\UserSession;
 
 class SessionManager
 {
@@ -21,6 +22,7 @@ class SessionManager
     const SESSION_KEY = '_spg';
     const SESSION_OLD = '_old';
     const SESSION_MESSAGE_KEY = __CLASS__;
+    const COOKIE_ID = 'login-cookie';
 
     private static $_session_user = null;
 
@@ -75,6 +77,10 @@ class SessionManager
         if(!$this->isLoggedIn())
             return false;
 
+        if(self::$_session_user) {
+            UserSession::delete(self::$_session_user);
+        }
+
         self::$_session_user = null;
         if(isset($_SESSION[self::SESSION_KEY][self::SESSION_OLD])) {
             $_SESSION[self::SESSION_KEY] = $_SESSION[self::SESSION_KEY][self::SESSION_OLD];
@@ -102,14 +108,40 @@ class SessionManager
 
     /**
      * @return UserRow
+     * @throws \Exception
      */
     public function getSessionUser() {
         if(self::$_session_user)
             return self::$_session_user;
 
-        if(!$this->isLoggedIn())
-            return new GuestUser();
+        if(!$this->isLoggedIn()) {
+            // Check for login cookie
+            $uid = $this->getLoginCookieUID();
+            if($uid) {
+                $LoginCookie = UserSession::fetchByUID($uid, false);
+                if($LoginCookie) {
+                    $User = UserRow::fetchByID($LoginCookie->getUserID());
+                    self::$_session_user = $User;
 
+                    // Reset Session
+                    session_regenerate_id(true);
+                    session_write_close();
+                    session_start();
+
+                    // Reset login session data
+                    $_SESSION[static::SESSION_KEY] = array (
+                        static::SESSION_ID => $User->getID()
+                    );
+
+                    return $User;
+                } else {
+                    $this->clearLoginCookie();
+                }
+            }
+
+            // Login cookie didn't happen, so return guest account
+            return new GuestUser();
+        }
         $id = $_SESSION[self::SESSION_KEY][self::SESSION_ID];
         try {
             $User = UserRow::fetchByID($id);
@@ -151,15 +183,41 @@ class SessionManager
 
         return $User;
     }
+    public function clearLoginCookie() {
+        return setcookie(
+            self::COOKIE_ID,
+            "",
+            time() - 3600
+        );
+    }
+
+    /**
+     * @param UserRow $SessionUser
+     * @return UserSession
+     */
+    public function createLoginCookie(UserRow $SessionUser) {
+        $LoginCookie = UserSession::insert($SessionUser, UserSession::ENUM_TYPE_COOKIE);
+        setcookie(
+            self::COOKIE_ID,
+            $LoginCookie->getUID(),
+            time() + SiteConfig::$COOKIE_TIMEOUT,
+            "/"
+        );
+        return $LoginCookie;
+    }
+
+    public function getLoginCookieUID() {
+        return @$_COOKIE[self::COOKIE_ID];
+    }
 
     public function setMessage($message) {
         $_SESSION[static::SESSION_MESSAGE_KEY] = $message;
     }
 
+
     public function hasMessage() {
         return isset($_SESSION, $_SESSION[static::SESSION_MESSAGE_KEY]);
     }
-
 
     public function popMessage() {
         $message = $_SESSION[static::SESSION_MESSAGE_KEY];

@@ -16,7 +16,7 @@ $SessionManager = new SessionManager();
     <section class="not-content login-section">
 
 
-        <form name="form-login" class="themed" action='login.php?action=login' method='POST' id='form-login'>
+        <form name="form-login" class="themed bounceIn" action='login.php?action=login' method='POST' id='form-login'>
             <div class="logo" style="margin: 17px auto;"></div>
 
             <?php if($SessionManager->hasMessage()) echo "<h5>", $SessionManager->popMessage(), "</h5>"; ?>
@@ -41,8 +41,12 @@ $SessionManager = new SessionManager();
                         </td>
                     </tr>
                     <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                        <td style="text-align: right;">
-                            <input type="submit" value="Login" class="themed"/>
+                        <td>
+                            <label class="login-cookie-text">
+                                <input type="checkbox" name="cookie" id="cookie" value="1" class="themed" />
+                                Log me in automatically
+                            </label>
+                            <input type="submit" value="Login" class="themed" style="float: right;"/>
                         </td>
                     </tr>
                     <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">

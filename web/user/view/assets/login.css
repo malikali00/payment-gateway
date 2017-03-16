@@ -30,12 +30,12 @@
 }
 
 
-.login-section form.themed input {
+.login-section .bounceIn {
 
     animation: bounceIn ease-out 1s;
 
     animation-duration: .8s;
-    animation-delay: 1.4s;
+    animation-delay: 0.4s;
     animation-timing-function: ease;
     animation-fill-mode: both;
 }
@@ -43,7 +43,6 @@
 .login-section form.themed input[type=email],
 .login-section form.themed input[type=password] {
     width: 18em;
-    animation-delay: .8s;
 }
 
 
@@ -106,3 +105,7 @@
     color: #eb7738;
 }
 
+.login-section .login-cookie-text {
+    font-size: smaller;
+    color: grey;
+}

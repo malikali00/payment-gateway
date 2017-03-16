@@ -1,7 +1,6 @@
 <?php
 use Merchant\Model\MerchantRow;
 use User\Model\AuthorityRow;
-use User\Model\UserAuthorityRow;
 use User\Model\UserRow;
 use User\Session\SessionManager;
 use User\Model\Authority;
@@ -173,7 +172,6 @@ $Theme->printHTMLMenu($category,    $action_url);
                                         if(in_array($authority, array('ADMIN', 'SUB_ADMIN'))
                                             && !$SessionUser->hasAuthority("ADMIN"))
                                             continue;
-                                        /** @var UserAuthorityRow $Authority */
                                         echo "<label>",
                                         "\n\t<input type='hidden' name='authority[", $authority, "]' value='0' />",
                                         "\n\t<input type='checkbox' name='authority[", $authority, "]' value='1'",

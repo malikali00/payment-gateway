@@ -195,7 +195,8 @@ class SessionManager
         return setcookie(
             self::COOKIE_ID,
             "",
-            time() - 3600
+            time() - 3600,
+            "/"
         );
     }
 

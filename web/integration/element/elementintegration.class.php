@@ -77,6 +77,8 @@ class ElementIntegration extends AbstractIntegration
 //        curl_setopt($ch, CURLOPT_VERBOSE, 1);
         curl_setopt($ch, CURLOPT_HEADER, 1);
 
+        error_log("API Request: " . $Request->getRequest());
+
         $duration = -microtime(true);
         $response = curl_exec($ch);
 
@@ -107,6 +109,8 @@ class ElementIntegration extends AbstractIntegration
 
         // Save the response
         $Request->setResponse($response);
+
+        error_log("API Response: " . $Request->getRequest());
 
 //        try {
 //             Try parsing the response

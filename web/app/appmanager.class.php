@@ -71,7 +71,7 @@ class AppManager {
                 try {
                     $App->renderHTMLHeadContent();
                 } catch (\Exception $ex) {
-                    error_log($ex->getMessage());
+                    error_log($ex);
                 }
             }
         );
@@ -85,7 +85,7 @@ class AppManager {
                     $App->renderAppHTML();
                     if(++$i%2===0) echo '<br />';
                 } catch (\Exception $ex) {
-                    error_log($ex->getMessage());
+                    error_log($ex);
                 }
             }
         );

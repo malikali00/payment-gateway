@@ -282,16 +282,16 @@ HEAD;
                                 </td>
                             </tr>
                             <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
+                                <td class="name">Email</td>
+                                <td><input type="email" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/></td>
+                            </tr>
+                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                                 <td class="name"><?php echo $SITE_CUSTOMER_NAME; ?> Name</td>
                                 <td>
                                     <input type="text" name="customer_first_name" class="themed" placeholder="First Name" size="12" />
                                     <input type="text" name="customermi" class="themed" placeholder="MI" size="1" /> <br/>
                                     <input type="text" name="customer_last_name" class="themed" placeholder="Last Name" size="12" />
                                 </td>
-                            </tr>
-                            <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
-                                <td class="name">Email</td>
-                                <td><input type="email" name="payee_reciept_email" class="themed" placeholder="xxx@xxx.xxx" <?php echo $MerchantForm->isFieldRequired('payee_receipt_email') ? 'required ' : ''; ?>/></td>
                             </tr>
                             <?php if($MerchantForm->hasField('payee_phone_number')) { ?>
                                 <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">

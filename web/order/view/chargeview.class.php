@@ -198,7 +198,7 @@ class ChargeView extends AbstractView
             );
             header('Location: ' . $baseHREF . $location);
 
-            error_log($ex->getMessage());
+            error_log($ex);
 
             // Delete pending orders that didn't complete
             if(!empty($post['email_decline']) && $Order) {

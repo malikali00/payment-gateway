@@ -114,34 +114,9 @@ class SessionManager
         if(self::$_session_user)
             return self::$_session_user;
 
-        if(!$this->isLoggedIn()) {
-            // Check for login cookie
-            $uid = $this->getLoginCookieUID();
-            if($uid) {
-                $LoginCookie = UserSession::fetchByUID($uid, false);
-                if($LoginCookie) {
-                    $User = UserRow::fetchByID($LoginCookie->getUserID());
-                    self::$_session_user = $User;
-
-                    // Reset Session
-                    session_regenerate_id(true);
-                    session_write_close();
-                    session_start();
-
-                    // Reset login session data
-                    $_SESSION[static::SESSION_KEY] = array (
-                        static::SESSION_ID => $User->getID()
-                    );
-
-                    return $User;
-                } else {
-                    $this->clearLoginCookie();
-                }
-            }
-
-            // Login cookie didn't happen, so return guest account
+        if(!$this->isLoggedIn())
             return new GuestUser();
-        }
+
         $id = $_SESSION[self::SESSION_KEY][self::SESSION_ID];
         try {
             $User = UserRow::fetchByID($id);
@@ -161,6 +136,37 @@ class SessionManager
         return $User;
     }
 
+    public function attemptSessionLogin() {
+
+        // Check for login cookie
+        $uid = $this->getLoginCookieUID();
+        if($uid) {
+            $LoginCookie = UserSession::fetchByUID($uid, false);
+            if($LoginCookie) {
+                $User = UserRow::fetchByID($LoginCookie->getUserID());
+                self::$_session_user = $User;
+
+                // Reset Session
+                session_regenerate_id(true);
+                session_write_close();
+                session_start();
+
+                // Reset login session data
+                $_SESSION[static::SESSION_KEY] = array (
+                    static::SESSION_ID => $User->getID()
+                );
+
+                return $User;
+
+            } else {
+                error_log("Login cookie not found: " . $uid);
+                $this->clearLoginCookie();
+            }
+        }
+
+        // Login cookie didn't happen, so return guest account
+
+    }
 
     public function adminLoginAsUser(UserRow $User) {
         if($User->hasAuthority('ADMIN'))

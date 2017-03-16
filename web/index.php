@@ -27,6 +27,9 @@ session_start();
 
 $SessionManager = new SessionManager();
 
+if(!$SessionManager->isLoggedIn())
+    $SessionManager->attemptSessionLogin();
+
 // Render View
 if($SessionManager->isLoggedIn()) {
     $View = new DashboardView();

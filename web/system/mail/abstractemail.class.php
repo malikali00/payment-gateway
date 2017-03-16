@@ -17,6 +17,9 @@ use User\Session\SessionManager;
 @define("SWIFTMAILER_DIR", dirname(dirname(dirname(__DIR__))) . '/support/swiftmailer/');
 require_once SWIFTMAILER_DIR . 'lib/swift_required.php';
 
+if(!class_exists("Swift_SmtpTransport"))
+    error_log("Class not found: Swift_SmtpTransport");
+
 abstract class AbstractEmail
 {
     const TITLE = null;

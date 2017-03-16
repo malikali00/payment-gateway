@@ -217,7 +217,8 @@ class ChargeView extends AbstractView
                     $EmailReceipt->send();
                 }
 
-                OrderRow::delete($Order);
+
+//                OrderRow::delete($Order); never delete an order. If it shouldn't exist, it shouldn't have been created ;)
             }
 
             // Send error email

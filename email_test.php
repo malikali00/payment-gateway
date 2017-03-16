@@ -25,7 +25,7 @@ echo "\nTesting Email ... ", __FILE__, PHP_EOL;
 $SessionManager = new \User\Session\SessionManager();
 $SessionUser = $SessionManager->getSessionUser();
 
-$Order = \Order\Model\OrderRow::fetchByID(8);
+$Order = \Order\Model\OrderRow::fetchByID(5);
 $Order->setPayeeEmail('support@simonpayments.com');
 $Merchant = \Merchant\Model\MerchantRow::fetchByID($Order->getMerchantID());
 

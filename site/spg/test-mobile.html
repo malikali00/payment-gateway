@@ -1,16 +1,179 @@
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
     <title>Simon Payments Gateway</title>
-    <base href="../../web/" />
     <meta charset='utf-8' />
+    <script src='app/chart/assets/Chart.bundle.js'></script>
+    <script src='app/chart/assets/app-chart.js'></script>
+    <link href='app/chart/assets/app-chart.css' type='text/css' rel='stylesheet' />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            var barChartData = {"labels":["1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm"],"datasets":[{"label":"Returned","backgroundColor":"#f0614d","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"label":"Amount","backgroundColor":"#87cb27","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]};
+            var canvasElms = document.getElementsByClassName('app-chart-canvas-daily');
+            for(var i=0; i<canvasElms.length; i++) {
+                var canvasElm = canvasElms[i];
+                canvasElm.bar = new Chart(canvasElm, {
+                    type: 'line',
+                    data: barChartData,
+                    options: {
+                        title:{
+                            display:true,
+                            text:"Today's Sales $0.00 (0)",
+                            fontSize: 18,
+                            fontColor: '#333'
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        responsive: true,
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true,
+                                fontSize: 40
+                            }]
+                        }
+                    }
+                });
+
+                canvasElm.parentNode.addEventListener('click', function(e) {
+                    document.location.href = 'order?date_from=2017-03-16';
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            var barChartData = {"labels":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"datasets":[{"label":"Returned","backgroundColor":"#f0614d","data":[0,0,0,0,0,0,0]},{"label":"Amount","backgroundColor":"#87cb27","data":[0,0,0,0,0,0,0]}]};
+            var canvasElms = document.getElementsByClassName('app-chart-canvas-wtd');
+            for(var i=0; i<canvasElms.length; i++) {
+                var canvasElm = canvasElms[i];
+                canvasElm.bar = new Chart(canvasElm, {
+                    type: 'line',
+                    data: barChartData,
+                    options: {
+                        title:{
+                            display:true,
+                            text:"Week To Date $0.00 (0)",
+                            fontSize: 18,
+                            fontColor: '#333'
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        responsive: true,
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+
+                canvasElm.parentNode.addEventListener('click', function(e) {
+                    document.location.href = 'order?date_from=2017-03-12';
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            var barChartData = {"labels":["1st","2nd","3rd","4th","5th","6th","7th","8th","9th","10th","11st","12nd","13rd","14th","15th","16th","17th","18th","19th","20th","21st","22nd","23rd","24th","25th","26th","27th","28th","29th","30th"],"datasets":[{"label":"Returned","backgroundColor":"#f0614d","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"label":"Amount","backgroundColor":"#87cb27","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]};
+            var canvasElms = document.getElementsByClassName('app-chart-canvas-mtd');
+
+            for(var i=0; i<canvasElms.length; i++) {
+                var canvasElm = canvasElms[i];
+                var ctx = canvasElm.getContext("2d");
+                canvasElm.bar = new Chart(ctx, {
+                    type: 'line',
+                    data: barChartData,
+                    options: {
+                        title:{
+                            display:true,
+                            text:"Month To Date $0.00 (0)",
+                            fontSize: 18,
+                            fontColor: '#333'
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        responsive: true,
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+
+                canvasElm.parentNode.addEventListener('click', function(e) {
+                    document.location.href = 'order?date_from=2017-03-01';
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            var barChartData = {"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"datasets":[{"label":"Returned","backgroundColor":"#f0614d","data":[0,0,0,0,0,0,0,0,0,0,0,0]},{"label":"Amount","backgroundColor":"#87cb27","data":[0,0,0,0,0,0,0,0,0,0,0,0]}]};
+            var canvasElms = document.getElementsByClassName('app-chart-canvas-ytd');
+            for(var i=0; i<canvasElms.length; i++) {
+                var canvasElm = canvasElms[i];
+                canvasElm.bar = new Chart(canvasElm, {
+                    type: 'line',
+                    data: barChartData,
+                    options: {
+                        title:{
+                            display:true,
+                            text:"Year To Date Sales $0.00 (0)",
+                            fontSize: 18,
+                            fontColor: '#333'
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false
+                        },
+                        responsive: true,
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+
+                canvasElm.addEventListener('click', function(e) {
+                    document.location.href = 'order?date_from=2017-01-01';
+                });
+            }
+        });
+    </script>
+    <link href='user/view/assets/dashboard.css' type='text/css' rel='stylesheet' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2, user-scalable=1">
 
     <script src="assets/js/date-input/nodep-date-input-polyfill.dist.js"></script>
 
     <link href='view/theme/spg/assets/spg-theme.css' type='text/css' rel='stylesheet'>
     <script src="view/theme/spg/assets/spg-theme.js"></script>
-    <link rel="icon" href="view/theme/spg/assets/img/favicon.ico">        <script src="order/view/assets/order.js"></script>
+    <link rel="icon" href="view/theme/spg/assets/img/favicon.ico">
 </head>
 <body class="spg-theme layout-mobile">
 
@@ -28,8 +191,8 @@
         </a>
         <span class="bread-crumbs">
 
-			<a class='breadcrumb' href='order'>Transactions</a> |
-			<a class='breadcrumb' href='order/list.php'>Search</a>                </span>
+			<a class='breadcrumb' href='merchant/?uid=TEST_MERCHANT'>Test Merchant</a> |
+			<a class='breadcrumb' href='index.php'>Dashboard</a>                </span>
 
 
         <a href="#" onclick="return false;" class="menu-button-account hide-on-layout-guest" style="float: right;">
@@ -53,14 +216,26 @@
             </ul>
         </a>
 
-        <form class="menu-search-form" action="order" style="float: right;">
+        <form class="sub-header-search-form hide-on-layout-narrow" action="order" style="float: right; ">
             <input name="search" tabindex="1" type="text" class="menu-search themed" placeholder="Search TID, Name, Invoice" />
         </form>
     </aside>
 
     <ul class="page-menu hide-on-print">
+        <li class="show-on-layout-mobile" style="text-align: center;">
+            <a href="user/account.php" class="button">
+                <div class="menu-icon menu-icon-account"></div>
+                <br/>
+                <span>My Account</span>
+            </a>
+            <a href="#" onclick="return false;" class="button">
+                <form class="menu-search-form" action="order" style="display: inline-block;">
+                    <input name="search" tabindex="1" type="text" class="menu-search themed" placeholder="Search TID, Name, Invoice" />
+                </form>
+            </a>
+        </li>
         <li>
-            <a href="." class="button"><div class="menu-icon menu-icon-dashboard"></div>
+            <a href="." class="button current"><div class="menu-icon menu-icon-dashboard"></div>
                 <span>Dashboard</span></a>
         </li>
 
@@ -83,7 +258,7 @@
         <!--            </li>-->
         <!--            -->
         <li>
-            <a href="order/list.php?date_from=2017-03-12" class="button current"><div class="menu-icon menu-icon-list"></div>
+            <a href="order/list.php?date_from=2017-03-15" class="button"><div class="menu-icon menu-icon-list"></div>
                 <span>Search</span> </a>
         </li>
         <li>
@@ -129,7 +304,7 @@
         </li>
 
 
-        <li>
+        <li class="hide-on-layout-narrow">
             <a href="user/account.php" class="button"> <div class="menu-icon menu-icon-account"></div>
                 <span>My Account</span></a>
         </li>
@@ -144,121 +319,16 @@
     </ul>
 
     <article class="themed">
-
-        <section class="content">
-
-            <form name="form-order-search" class="themed">
-
-                <fieldset class="search-fields">
-                    <div class="legend">Search</div>
-                    <table class="themed" style="width: 100%;">
-                        <tbody>
-                        <tr>
-                            <td class="name">From</td>
-                            <td>
-                                <input type="date" name="date_from" value="2017-03-13" /> to
-                                <input type="date" name="date_to"   value="" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="name">Limit</td>
-                            <td>
-                                <select name="merchant_id" style="min-width: 14em" >
-                                    <option value="" style="max-width: 14em;">By Merchant</option>
-
-                                    <option value='1' '>Test Merchant</option>                                        </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="name">Search</td>
-                            <td>
-                                <input type="text" name="search" value="" placeholder="ID, UID, MID, Amount, Card, Name, Invoice ID" style="max-width: 14em;" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">Submit</td>
-                            <td>
-                                <input name="action" type="submit" value="Search" class="themed" />
-                                <select name="limit">
-                                    <option>10</option>
-                                    <option selected="selected">25</option>
-                                    <option>50</option>
-                                    <option>100</option>
-                                    <option>250</option>
-                                </select>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </fieldset>
-
-                <fieldset>
-                    <div class="legend">Search Results</div>
-                    <table class="table-results themed small striped-rows" style="width: 100%;">
-                        <tr>
-                            <th><a href="order?order=DESC&order-by=oi.id&date_from=2017-03-13">ID</a></th>
-                            <th><a href="order?order=DESC&order-by=oi.date&date_from=2017-03-13">Date</a></th>
-                            <th>Customer/ID</th>
-                            <th class="hide-on-layout-narrow"><a href="order?order=DESC&order-by=oi.invoice_number&date_from=2017-03-13">Invoice</a></th>
-                            <th>Amount</th>
-                            <th class="hide-on-layout-narrow">Mode</th>
-                            <th><a href="order?order=DESC&order-by=oi.status&date_from=2017-03-13">Status</a></th>
-                            <th class="hide-on-layout-narrow">Account</th>
-                            <th class="hide-on-layout-narrow">Type</th>
-                            <th class="hide-on-layout-narrow">
-                                <a href="order?order=DESC&order-by=oi.merchant_id&date_from=2017-03-13">
-                                    Merchant                                        </a>
-                            </th>
-                        </tr>
-
-                        <tr>
-                            <td colspan="10" class="pagination">
-                                <span style=""><a href='order?page=1&date_from=2017-03-13' class="current">1</a> <a href='order?page=2&date_from=2017-03-13'>Next</a> </span>
-                                <button name="action" type="submit" value="Export-Data" class="themed" style="float:right;">Export Data (.csv)</button>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-
-
-                <fieldset>
-                    <div class="legend">Search Stats</div>
-                    <table class="table-stats themed small striped-rows" style="min-width: 50%;">
-                        <tr class="row-odd">
-                            <td class="name">Range</td>
-                            <td></td>
-                        </tr>
-                        <tr class="row-even">
-                            <td class="name">Authorized</td>
-                            <td><a href="order/list.php?date_from=2017-03-13&status=">0.00 ()</a></td>
-                        </tr>
-                        <tr class="row-odd">
-                            <td class="name">Void</td>
-                            <td><a href="order/list.php?date_from=2017-03-13&status=Void">0.00 ()</a></td>
-                        </tr>
-                        <tr class="row-even">
-                            <td class="name"">Returned</td>
-                            <td><a href="order/list.php?date_from=2017-03-13&status=Return">0.00 ()</a></td>
-                        </tr>
-                        <tr class="row-odd">
-                            <td class="name">Conv. Fee</td>
-                            <td>0.00 ()</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="6" style="text-align: right">
-                                    <span style="font-size: 0.7em; color: grey; float: left;">
-										25 orders found in 0.00 seconds  from Mar 13th 2017 4:00
-sorted by field 'oi.date' in descending order (GMT -4)                                    </span>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-
-            </form>
-        </section>
+        <section class="content dashboard-section">
+            <div class="app-chart app-chart-today">
+                <canvas class="app-chart-canvas app-chart-canvas-daily" ></canvas>
+            </div>        <div class="app-chart app-chart-wtd">
+            <canvas class="app-chart-canvas app-chart-canvas-wtd" ></canvas>
+        </div><br />        <div class="app-chart app-chart-mtd">
+            <canvas class="app-chart-canvas app-chart-canvas-mtd" ></canvas>
+        </div>        <div class="app-chart app-chart-ytd">
+            <canvas class="app-chart-canvas app-chart-canvas-ytd" ></canvas>
+        </div><br />			</section>
     </article>
 </div>
 <footer class="hide-on-print">

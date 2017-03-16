@@ -17,13 +17,14 @@ $SessionManager = new SessionManager();
 
 
         <form name="form-login" class="themed bounceIn" action='login.php?action=login' method='POST' id='form-login'>
-            <div class="logo" style="margin: 17px auto;"></div>
+            <div class="logo"></div>
 
+            <hr />
             <?php if($SessionManager->hasMessage()) echo "<h5>", $SessionManager->popMessage(), "</h5>"; ?>
 
-            <fieldset style=" padding: 0.5em; margin: 0.3em; text-align: left;">
+            <fieldset style=" padding: 0.5em; margin: 0.3em; ">
 
-                <table class="table-user-info themed">
+                <table class="table-user-info themed" style="text-align: left;">
                     <tr class="row-<?php echo ($odd=!$odd)?'odd':'even';?>">
                         <td>
                             <strong style="font-size: larger;">Sign in to your account</strong>

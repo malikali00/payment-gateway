@@ -1,28 +1,30 @@
 /** Page Body **/
 
 .spg-theme {
-    /* color: #000000; */
     font-family: arial, serif;
     margin: 0 auto;
-    /* background: #F0F4F8 linear-gradient(90deg, #e7f0f3 0%, #ffffff 85%, #e7f0f3 100%); */
-    /* background-color: #ffffff; */
 }
 
 .spg-theme header.themed {
     background-color: #FFF;
     min-height: 45px;
+    border-left: 1px solid #DDD;
+}
+
+/** Anchors **/
+
+.spg-theme a {
+    /* text-decoration: none; */
+    color: #3997b9;
 }
 
 
 /** Page Body Container **/
 
 .body-container {
-    /* background-color: white; */
     max-width: 1200px;
-    /*border-radius: 7px;*/
     margin: 0px auto 0px auto;
     padding: 0 0 8px 0px;
-    /*border: 1px solid #8FA2BF;*/
     position: relative;
 }
 
@@ -57,10 +59,13 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
 
 .spg-theme div.logo {
     background-image: url('img/logo.png');
-    width: 341px;
-    height: 54px;
-    margin: 3px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 267px;
+    height: 41px;
+    margin: 12px 12px 2px 12px;
     display: inline-block;
+    /* transform: scale(0.8); */
 }
 .spg-theme div.logo-full {
     background: url('img/logo.png') no-repeat center;
@@ -82,15 +87,10 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     display: inline-block;
     line-height: 3em;
 }
-.spg-theme a {
-    /* text-decoration: none; */
-    color: #3997b9;
-}
 
 .spg-theme .menu-search {
-    /* float: right; */
     font-size: 18px;
-    padding: 7px 11px 4px 29px;
+    padding-left: 29px !important;
     margin: 0 0 0 4px;
     border-radius: 6px;
     border: 1px inset;
@@ -102,7 +102,7 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     position: relative;
     background: url(img/icons/btn_search.png) no-repeat rgba(255, 255, 255, 0.8);
     background-size: 24px;
-    background-position: 5px 5px;
+    background-position: 3px 4px;
 }
 .spg-theme .menu-search:hover {
     background-color: #FFF;
@@ -185,6 +185,7 @@ body.layout-horizontal.spg-theme .float-right-on-layout-horizontal {
     transition: all 0.3s ease-out;
     list-style: none;
     background-color: #dae6ea;
+    border-left: 1px solid #DDD;
 }
 
 /** Mobile Menu Layout **/
@@ -550,7 +551,7 @@ body.layout-vertical.spg-theme nav.page-menu {
 
 .spg-theme .sub-header {
     /* border-bottom: 1px solid #8fa2ad; */
-    border-top: 1px solid #b3c5d0;
+    /* border-top: 1px solid #b3c5d0; */
     /* padding: 0.8em 0.5em 0.4em 0.9em; */
     background-color: #dae6ea;
     /* position: relative; */
@@ -558,6 +559,7 @@ body.layout-vertical.spg-theme nav.page-menu {
     /* display: block; */
     /* box-shadow: 0px 2px 2px #20465c; */
     background: linear-gradient(180deg, #dae6ea 15%, #dfeaed 50%,  #dae6ea 85%);
+    border: 1px solid #DDD;
 }
 
 .spg-theme .sub-header > * {

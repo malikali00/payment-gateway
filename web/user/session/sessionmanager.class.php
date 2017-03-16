@@ -160,6 +160,7 @@ class SessionManager
 
             } else {
                 error_log("Login cookie not found: " . $uid);
+                $this->setMessage("Login cookie not found: " . $uid);
                 $this->clearLoginCookie();
             }
         }

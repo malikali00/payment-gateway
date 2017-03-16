@@ -3,6 +3,7 @@
 .spg-theme {
     font-family: arial, serif;
     margin: 0 auto;
+    /*background: #F0F4F8 linear-gradient(90deg, #e7f0f3 0%, #ffffff 85%, #e7f0f3 100%);*/
 }
 
 .spg-theme header.themed {

@@ -17,6 +17,7 @@ use User\Session\SessionManager;
 @define("SWIFTMAILER_DIR", dirname(dirname(dirname(__DIR__))) . '/support/swiftmailer/');
 require_once SWIFTMAILER_DIR . 'lib/swift_required.php';
 require_once SWIFTMAILER_DIR . 'lib/classes/Swift/Transport/IoBuffer.php';
+require_once SWIFTMAILER_DIR . 'lib/classes/Swift/Transport/StreamBuffer.php';
 
 
 if(!class_exists("Swift_SmtpTransport"))

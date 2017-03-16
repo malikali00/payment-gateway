@@ -25,16 +25,15 @@ echo "\nTesting Email ... ", __FILE__, PHP_EOL;
 $SessionManager = new \User\Session\SessionManager();
 $SessionUser = $SessionManager->getSessionUser();
 
-$Order = \Order\Model\OrderRow::fetchByID(8603);
+$Order = \Order\Model\OrderRow::fetchByID(8);
 $Order->setPayeeEmail('support@simonpayments.com');
 $Merchant = \Merchant\Model\MerchantRow::fetchByID($Order->getMerchantID());
 
 
 $Email = new \Order\Mail\ReceiptEmail($Order, $Merchant);
-$Email->addCC('support@simonpayments.com', 'Tester');
 echo "\nSending Receipt Email...";
 if(!$Email->send())
-    error_log("Test Receipt Email Failed: " . $Email->ErrorInfo);
+    error_log("Test Receipt Email Failed");
 
 
 
@@ -42,14 +41,14 @@ $Email = new \Subscription\Mail\CancelEmail($Order, $Merchant);
 $Email->addCC('support@simonpayments.com', 'Tester');
 echo "\nSending Cancel Email...";
 if(!$Email->send())
-    error_log("Test Cancel Email Failed: " . $Email->ErrorInfo);
+    error_log("Test Cancel Email Failed");
 
 
 $Email = new \User\Mail\ResetPasswordEmail($SessionUser);
 $Email->addCC('support@simonpayments.com', 'Tester');
 echo "\nSending Reset Email...";
 if(!$Email->send())
-    error_log("Test Reset Email Failed: " . $Email->ErrorInfo);
+    error_log("Test Reset Email Failed");
 
 
 echo "\nEmail Tests successful";

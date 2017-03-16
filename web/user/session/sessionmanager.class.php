@@ -79,6 +79,7 @@ class SessionManager
 
         if(self::$_session_user) {
             UserSession::delete(self::$_session_user);
+            $this->clearLoginCookie();
         }
 
         self::$_session_user = null;
